@@ -43,6 +43,17 @@ Colaboraciones: *Reina la Sed* — Novembre Elèctric, Samuel Reina.
 | 9 | What a Night | 4:19 |
 | 10 | Autopsia de un like | 2:25 |
 
+## Dónde va cada dato en el código
+
+| Contenido | Archivo |
+|---|---|
+| Discografía y lo más escuchado | `src/data/releases.ts` |
+| Créditos de doblaje | `src/data/dubbing.ts` |
+| Conciertos | `src/data/concerts.ts` |
+| Vídeo destacado (ID de YouTube) | `src/data/media.ts` |
+| Email, redes, navegación | `src/data/site.ts` |
+| Frase del manifiesto | `src/sections/Manifesto.tsx` (ahora: frase del concepto, no es cita de Samuel) |
+
 ## Pendiente de recibir
 
 - [ ] Fotografías en alta resolución (retrato, directo, estudio) con derechos de uso.

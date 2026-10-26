@@ -1,0 +1,103 @@
+.live {
+  padding: var(--space-section) var(--gutter);
+}
+
+.live__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.live__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: var(--space-2);
+  border-radius: 50%;
+  background: var(--color-live);
+  animation: live-dot 1.2s steps(2) infinite;
+}
+
+@keyframes live-dot {
+  50% {
+    opacity: 0.2;
+  }
+}
+
+.live__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-8);
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.live__date {
+  width: 6rem;
+  font-size: var(--text-sm);
+}
+
+.live__city {
+  flex: 1 1 14rem;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+}
+
+.live__venue {
+  flex: 0 1 14rem;
+  color: var(--color-muted);
+}
+
+.live__tickets {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-pill);
+  background: var(--color-live);
+  color: var(--color-bg);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.live__tickets:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.live__empty {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4) var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-line);
+}
+
+.live__empty-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-style: italic;
+  color: var(--color-muted);
+}
+
+.live__empty-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  color: var(--color-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live__dot {
+    animation: none;
+  }
+}

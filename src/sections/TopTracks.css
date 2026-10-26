@@ -1,0 +1,39 @@
+.top-tracks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter) var(--space-section);
+}
+
+.top-tracks__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr));
+  column-gap: var(--space-12);
+}
+
+.top-tracks__item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  min-height: 44px;
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.top-tracks__number {
+  width: 2ch;
+  color: var(--color-accent);
+}
+
+.top-tracks__name {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--text-lg);
+}
+
+.top-tracks__feat {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}

@@ -1,0 +1,19 @@
+.manifesto {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-section) var(--gutter);
+}
+
+.manifesto__kicker {
+  color: var(--color-accent);
+}
+
+.manifesto__text {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.6vw, 5.25rem);
+  line-height: 1.08;
+  text-wrap: balance;
+}

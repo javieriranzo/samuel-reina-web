@@ -11,7 +11,7 @@ Web oficial de **Samuel Reina**, cantante y actor de doblaje.
 
 ## Estado
 
-🟡 **Fase 3 — Home (primera mitad).** Intro, portada, último lanzamiento y «Dos voces». Las secciones de la fase 4 siguen como provisionales.
+🟡 **Fase 4 — Home completa.** Todas las secciones montadas; doblaje, directo, vídeo y contacto muestran estados vacíos hasta recibir el contenido (ver `docs/contenido.md`).
 
 Hoja de ruta en [`docs/roadmap.md`](docs/roadmap.md).
 

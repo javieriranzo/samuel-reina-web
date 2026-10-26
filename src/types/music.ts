@@ -3,6 +3,7 @@ export type Track = {
   /** Formato m:ss */
   duration: string
   featuring?: string
+  spotifyUrl?: string
 }
 
 export type Release = {

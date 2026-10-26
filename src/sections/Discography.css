@@ -1,0 +1,94 @@
+.discography {
+  border-top: 1px solid var(--color-line);
+}
+
+.discography__pin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-12);
+  padding: var(--space-section) 0;
+}
+
+.discography__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-4);
+  padding: 0 var(--gutter);
+}
+
+/* Tira de película: banda negra con perforaciones arriba y abajo */
+.discography__viewport {
+  position: relative;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
+}
+
+.discography__strip {
+  display: flex;
+  gap: var(--space-2);
+  width: max-content;
+  margin: 0 var(--gutter);
+  padding: var(--space-12) var(--space-2);
+  background:
+    radial-gradient(circle, var(--color-bg) 3px, transparent 3.5px) 0 6px / 20px 16px repeat-x,
+    radial-gradient(circle, var(--color-bg) 3px, transparent 3.5px) 0 calc(100% - 6px) / 20px 16px
+      repeat-x,
+    var(--color-void);
+  border-radius: var(--radius-sm);
+}
+
+.discography__frame {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  /* Limitada también por la altura para que la sección fijada quepa en pantalla */
+  width: clamp(13rem, min(24vw, 36svh), 20rem);
+}
+
+.discography__cover {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  filter: grayscale(0.35);
+  transition: filter var(--duration-slow) var(--ease-out);
+}
+
+.discography__frame:hover .discography__cover {
+  filter: none;
+}
+
+.discography__meta {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--space-1);
+}
+
+.discography__title {
+  padding: 0 var(--space-1);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+}
+
+/* Fijada en horizontal: sin scroll propio (lo mueve GSAP) */
+@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
+  .discography__pin {
+    min-height: 100svh;
+    gap: var(--space-8);
+    padding: calc(var(--header-height) + var(--space-4)) 0 var(--space-8);
+  }
+
+  .discography__viewport {
+    overflow: hidden;
+  }
+
+  .discography__strip {
+    margin-right: var(--gutter);
+  }
+}

@@ -1,0 +1,67 @@
+.video {
+  padding: 0 var(--gutter) var(--space-section);
+}
+
+/* Bandas negras de cine arriba y abajo */
+.video__frame {
+  position: relative;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  aspect-ratio: 2.39;
+  overflow: hidden;
+  border-block: clamp(12px, 2vw, 28px) solid var(--color-void);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.video__player,
+.video__facade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video__facade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: 0;
+  background: transparent;
+}
+
+.video__poster {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.4) brightness(0.6);
+}
+
+.video__play {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border: 1px solid var(--color-text);
+  border-radius: 50%;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.video__facade:hover .video__play {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.video__title {
+  position: relative;
+  color: var(--color-text);
+}

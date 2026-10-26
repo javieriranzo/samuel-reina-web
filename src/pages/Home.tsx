@@ -1,11 +1,15 @@
 import { useCallback, useState } from 'react'
-import { NAV_ITEMS } from '@/data/site'
 import { shouldPlayIntro } from '@/lib/intro'
+import { Contact } from '@/sections/Contact'
+import { Discography } from '@/sections/Discography'
+import { DubbingCredits } from '@/sections/DubbingCredits'
+import { FeaturedVideo } from '@/sections/FeaturedVideo'
 import { Hero } from '@/sections/Hero'
 import { Intro } from '@/sections/Intro'
 import { LatestRelease } from '@/sections/LatestRelease'
+import { Live } from '@/sections/Live'
+import { Manifesto } from '@/sections/Manifesto'
 import { TwoVoices } from '@/sections/TwoVoices'
-import './Home.css'
 
 type IntroState = 'playing' | 'revealing' | 'done'
 
@@ -20,14 +24,12 @@ export function Home() {
       <Hero ready={intro !== 'playing'} />
       <LatestRelease />
       <TwoVoices />
-
-      {/* Secciones provisionales hasta la fase 4 */}
-      {NAV_ITEMS.map((item) => (
-        <section key={item.id} id={item.id} className="home__placeholder">
-          <h2>{item.label}</h2>
-          <p className="label">Próximamente</p>
-        </section>
-      ))}
+      <Discography />
+      <DubbingCredits />
+      <Live />
+      <Manifesto />
+      <FeaturedVideo />
+      <Contact />
     </>
   )
 }
