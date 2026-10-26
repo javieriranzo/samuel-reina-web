@@ -17,7 +17,12 @@ export function SoundProvider({ children }: Props) {
     })
   }, [])
 
-  const value = useMemo(() => ({ enabled, toggle }), [enabled, toggle])
+  const enable = useCallback(() => {
+    writeStorage(STORAGE_KEY, 'on')
+    setEnabled(true)
+  }, [])
+
+  const value = useMemo(() => ({ enabled, toggle, enable }), [enabled, toggle, enable])
 
   return <SoundContext value={value}>{children}</SoundContext>
 }

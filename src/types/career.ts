@@ -2,7 +2,7 @@ export type DubbingCredit = {
   character: string
   production: string
   year: number
-  /** Ruta en public/audio/ del fragmento del demo reel, si existe */
+  /** Fragmento del demo reel en public/audio/ (p. ej. '/audio/demo-personaje.mp3') */
   clip?: string
   /** Duración del fragmento en segundos (para el timecode) */
   clipSeconds?: number

@@ -56,3 +56,9 @@
   font-style: italic;
   color: var(--color-muted);
 }
+
+.credits__clip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}

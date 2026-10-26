@@ -52,6 +52,9 @@ Colaboraciones: *Reina la Sed* — Novembre Elèctric, Samuel Reina.
 | Conciertos | `src/data/concerts.ts` |
 | Vídeo destacado (ID de YouTube) | `src/data/media.ts` |
 | Email, redes, navegación | `src/data/site.ts` |
+| Fragmentos de temas (`preview`) | `src/data/releases.ts` + archivo en `public/audio/` |
+| Fragmentos del demo reel (`clip`) | `src/data/dubbing.ts` + archivo en `public/audio/` |
+| Saludo al activar el sonido | `GREETING_AUDIO` en `src/data/media.ts` + archivo en `public/audio/` |
 | Frase del manifiesto | `src/sections/Manifesto.tsx` (ahora: frase del concepto, no es cita de Samuel) |
 
 ## Pendiente de recibir
@@ -62,6 +65,8 @@ Colaboraciones: *Reina la Sed* — Novembre Elèctric, Samuel Reina.
 - [ ] Foto del hero en alta resolución (ahora: la foto de artista de Spotify, 640 px, se ve suave en pantallas grandes).
 - [ ] Créditos de doblaje: personaje, producción, año.
 - [ ] Fragmentos del demo reel autorizados.
+- [ ] Fragmentos de 20–30 s de los temas destacados (MP3 128–192 kbps) con permiso de uso.
+- [ ] Saludo grabado por Samuel para cuando se activa el sonido (5–10 s, con ironía: p. ej. «¿Me oyes? Pues ya estamos»).
 - [ ] Agenda de conciertos.
 - [ ] Biografía (corta y larga) y la frase para el manifiesto.
 - [ ] Logotipo o firma (si no existe, logotipo tipográfico en Instrument Serif).

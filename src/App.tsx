@@ -2,6 +2,8 @@ import { Cursor } from '@/components/layout/Cursor'
 import { FilmGrain } from '@/components/layout/FilmGrain'
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
+import { NowPlaying } from '@/components/layout/NowPlaying'
+import { PlayerProvider } from '@/components/layout/PlayerProvider'
 import { SkipLink } from '@/components/layout/SkipLink'
 import { SmoothScroll } from '@/components/layout/SmoothScroll'
 import { SoundProvider } from '@/components/layout/SoundProvider'
@@ -12,16 +14,19 @@ export function App() {
   return (
     <SmoothScroll>
       <SoundProvider>
-        <SkipLink />
-        <Header />
-        <div id={PAGE_ID}>
-          <main id={MAIN_ID} tabIndex={-1}>
-            <Home />
-          </main>
-          <Footer />
-        </div>
-        <FilmGrain />
-        <Cursor />
+        <PlayerProvider>
+          <SkipLink />
+          <Header />
+          <div id={PAGE_ID}>
+            <main id={MAIN_ID} tabIndex={-1}>
+              <Home />
+            </main>
+            <Footer />
+          </div>
+          <FilmGrain />
+          <NowPlaying />
+          <Cursor />
+        </PlayerProvider>
       </SoundProvider>
     </SmoothScroll>
   )

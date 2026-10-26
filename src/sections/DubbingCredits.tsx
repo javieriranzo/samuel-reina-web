@@ -1,9 +1,9 @@
 import { useRef } from 'react'
 import { useReveal } from '@/animations/useReveal'
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import { Timecode } from '@/components/ui/Timecode'
 import { Waveform } from '@/components/ui/Waveform'
 import { DUBBING_CREDITS } from '@/data/dubbing'
+import { CreditClip } from './CreditClip'
 import './DubbingCredits.css'
 
 /** Créditos de doblaje con estética de créditos finales. */
@@ -44,15 +44,8 @@ export function DubbingCredits() {
             >
               <span className="label">{credit.character}</span>
               <span className="credits__production">{credit.production}</span>
-              <span className="label credits__year">
-                {credit.year}
-                {credit.clipSeconds !== undefined && (
-                  <>
-                    {' · '}
-                    <Timecode seconds={credit.clipSeconds} prefix="▶" />
-                  </>
-                )}
-              </span>
+              <span className="label credits__year">{credit.year}</span>
+              {credit.clip && <CreditClip credit={credit} clip={credit.clip} />}
             </li>
           ))}
         </ul>

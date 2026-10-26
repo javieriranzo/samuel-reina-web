@@ -110,3 +110,18 @@
     transform: none;
   }
 }
+
+.release__wave[data-seekable='true'] {
+  cursor: pointer;
+}
+
+.release__now {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  color: var(--color-text);
+}
+
+.release__track {
+  align-items: center;
+}

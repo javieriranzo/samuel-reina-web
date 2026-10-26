@@ -1,0 +1,40 @@
+.audio-button {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  background: transparent;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.audio-button--md {
+  width: 56px;
+  height: 56px;
+}
+
+.audio-button--sm {
+  width: 44px;
+  height: 44px;
+}
+
+.audio-button--music {
+  color: var(--color-accent);
+}
+
+.audio-button--rec {
+  color: var(--color-live);
+}
+
+.audio-button:hover,
+.audio-button[data-active='true'] {
+  background: currentColor;
+}
+
+.audio-button:hover svg,
+.audio-button[data-active='true'] svg {
+  color: var(--color-bg);
+}

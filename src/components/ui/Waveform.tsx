@@ -2,9 +2,11 @@ import { useMemo } from 'react'
 import './Waveform.css'
 
 type Props = {
-  /** Misma semilla, misma onda */
+  /** Misma semilla, misma onda (se usa si no hay `peaks`) */
   seed: number
   bars?: number
+  /** Alturas reales 0–1 (ver useWaveformPeaks) */
+  peaks?: number[] | null
   /** 0–1: barras reproducidas en ámbar */
   progress?: number
   className?: string
@@ -29,9 +31,10 @@ function buildHeights(seed: number, bars: number): number[] {
   })
 }
 
-/** Onda de audio decorativa hecha de barras. */
-export function Waveform({ seed, bars = 64, progress = 0, className = '' }: Props) {
-  const heights = useMemo(() => buildHeights(seed, bars), [seed, bars])
+/** Onda de audio hecha de barras: real si recibe `peaks`, decorativa si no. */
+export function Waveform({ seed, bars = 64, peaks, progress = 0, className = '' }: Props) {
+  const generated = useMemo(() => buildHeights(seed, bars), [seed, bars])
+  const heights = peaks && peaks.length === bars ? peaks : generated
   const played = Math.round(progress * bars)
 
   return (

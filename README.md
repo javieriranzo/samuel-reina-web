@@ -11,7 +11,7 @@ Web oficial de **Samuel Reina**, cantante y actor de doblaje.
 
 ## Estado
 
-🟡 **Fase 4 — Home completa.** Todas las secciones montadas; doblaje, directo, vídeo y contacto muestran estados vacíos hasta recibir el contenido (ver `docs/contenido.md`).
+🟡 **Fase 5 — Audio.** Home completa con reproductor global listo; doblaje, directo, vídeo, contacto y audio esperan contenido (ver `docs/contenido.md`).
 
 Hoja de ruta en [`docs/roadmap.md`](docs/roadmap.md).
 

@@ -9,3 +9,9 @@ export function formatTimecode(seconds: number): string {
   const s = Math.floor(totalFrames / FPS)
   return `${pad(Math.floor(s / 3600))}:${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}:${pad(frames)}`
 }
+
+/** Segundos → m:ss (duraciones de temas). */
+export function formatDuration(seconds: number): string {
+  const s = Math.max(0, Math.floor(seconds))
+  return `${Math.floor(s / 60)}:${pad(s % 60)}`
+}

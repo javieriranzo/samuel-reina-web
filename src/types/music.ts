@@ -4,6 +4,8 @@ export type Track = {
   duration: string
   featuring?: string
   spotifyUrl?: string
+  /** Fragmento en public/audio/ (p. ej. '/audio/bodypump-cofrade.mp3') */
+  preview?: string
 }
 
 export type Release = {

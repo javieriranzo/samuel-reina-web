@@ -1,11 +1,11 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '@/animations/gsap'
 import { useReveal } from '@/animations/useReveal'
-import { Waveform } from '@/components/ui/Waveform'
 import { LATEST_RELEASE } from '@/data/releases'
 import { SOCIAL_LINKS } from '@/data/site'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
+import { ReleasePlayer } from './ReleasePlayer'
 import './LatestRelease.css'
 
 const BASE_TILT = -6
@@ -84,21 +84,7 @@ export function LatestRelease() {
             {release.title}
           </h2>
 
-          <div className="release__player" data-reveal>
-            <Waveform seed={release.year} bars={72} progress={0.32} />
-            <p className="label">Temas destacados</p>
-            <ol className="release__tracks" role="list">
-              {release.highlightedTracks.map((track, i) => (
-                <li key={track.title} className="release__track">
-                  <span className="label release__track-number">
-                    {String(i + 1).padStart(2, '0')}
-                  </span>
-                  <span className="release__track-title">{track.title}</span>
-                  <span className="label">{track.duration}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <ReleasePlayer release={release} />
 
           {platforms.length > 0 && (
             <ul className="release__links" role="list" data-reveal>
