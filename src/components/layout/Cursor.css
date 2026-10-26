@@ -1,0 +1,63 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-cursor);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--duration-fast) var(--ease-out);
+}
+
+.cursor[data-visible='true'] {
+  opacity: 1;
+}
+
+.cursor__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: transparent;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  translate: -50% -50%;
+  transition:
+    width var(--duration-base) var(--ease-out),
+    height var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.cursor[data-mode='play'] .cursor__label,
+.cursor[data-mode='rec'] .cursor__label {
+  width: 96px;
+  height: 96px;
+  background: rgb(10 10 12 / 0.4);
+  backdrop-filter: blur(4px);
+  border: 1px solid currentColor;
+}
+
+.cursor[data-mode='play'] .cursor__label {
+  color: var(--color-accent);
+}
+
+.cursor[data-mode='rec'] .cursor__label {
+  color: var(--color-live);
+}
+
+.cursor[data-mode='rec'] .cursor__label::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}

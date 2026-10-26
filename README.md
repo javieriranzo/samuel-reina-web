@@ -11,7 +11,7 @@ Web oficial de **Samuel Reina**, cantante y actor de doblaje.
 
 ## Estado
 
-🟡 **Fase 0 — Estructura del proyecto.** Carpetas, documentación, OpenSpec y preparación para Claude Code. Aún no hay código ni dependencias instaladas.
+🟡 **Fase 1 — Base técnica.** Vite + React + TS, tokens de diseño, tipografías, scroll suave, grano y cursor. Home provisional.
 
 Hoja de ruta en [`docs/roadmap.md`](docs/roadmap.md).
 
@@ -24,7 +24,8 @@ Hoja de ruta en [`docs/roadmap.md`](docs/roadmap.md).
 | Scroll suave | [Lenis](https://lenis.darkroom.engineering) |
 | Estilos | CSS moderno con *custom properties* (tokens de diseño) |
 | Tipografías | Instrument Serif · Inter Tight · JetBrains Mono |
-| Calidad | ESLint + Prettier |
+| Tipografías (paquetes) | Fontsource, autoalojadas |
+| Calidad | oxlint + Prettier |
 | Especificaciones | [OpenSpec](https://github.com/Fission-AI/OpenSpec) |
 
 Requisitos: **Node.js ≥ 24** y npm ≥ 11.
@@ -70,14 +71,14 @@ samuel-reina-web/
 
 ## Scripts
 
-Se añadirán al crear el proyecto Vite (fase 1):
-
 ```bash
-npm install       # instalar dependencias
-npm run dev       # servidor de desarrollo
-npm run build     # build de producción
-npm run preview   # previsualizar la build
-npm run lint      # revisar el código
+npm install           # instalar dependencias
+npm run dev           # servidor de desarrollo
+npm run build         # comprobación de tipos + build de producción
+npm run preview       # previsualizar la build
+npm run lint          # oxlint
+npm run format        # Prettier (escribe)
+npm run format:check  # Prettier (solo comprueba)
 ```
 
 ## Cómo trabajamos (con Claude Code)

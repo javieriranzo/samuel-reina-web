@@ -12,15 +12,14 @@ Web oficial de **Samuel Reina**, cantante y actor de doblaje. Web de una sola p�
 
 ## Stack
 
-Vite + React + TypeScript · GSAP (ScrollTrigger) · Lenis · CSS con custom properties. Node ≥ 24.
+Vite + React + TypeScript · GSAP (ScrollTrigger) · Lenis · CSS con custom properties · Fontsource · oxlint + Prettier. Node ≥ 24.
 
 ## Comandos
 
-(Disponibles a partir de la fase 1.)
-
 - `npm run dev` — desarrollo
-- `npm run build` — build de producción (debe pasar antes de dar una tarea por terminada)
-- `npm run lint` — lint
+- `npm run build` — tipos + build de producción (debe pasar antes de dar una tarea por terminada)
+- `npm run lint` — oxlint
+- `npm run format` — Prettier
 
 ## Flujo de trabajo: OpenSpec
 
@@ -32,10 +31,13 @@ Vite + React + TypeScript · GSAP (ScrollTrigger) · Lenis · CSS con custom pro
 
 ## Convenciones de código
 
-- Componentes React en `PascalCase.tsx`, uno por archivo, con su CSS al lado (`Hero.tsx` + `Hero.css`) o CSS Modules si se decide en fase 1.
+- Componentes React en `PascalCase.tsx`, uno por archivo, con su CSS al lado (`Hero.tsx` + `Hero.css`) y clases BEM con el nombre del componente (`.hero__title`).
 - Secciones de la home en `src/sections/`, piezas reutilizables en `src/components/ui/`, estructura global en `src/components/layout/`.
 - El contenido (discografía, créditos, agenda) vive en `src/data/` como datos tipados, nunca escrito a mano dentro de los componentes.
 - Colores, tipografías, espaciados y duraciones de animación solo mediante tokens de `src/styles/tokens.css`. Nada de hex sueltos en componentes.
+- GSAP se importa siempre desde `@/animations/gsap` (ahí se registran los plugins).
+- Imports internos con el alias `@/` (→ `src/`).
+- El cursor cambia a PLAY/REC con `data-cursor="play" | "rec"` en el elemento.
 - Animaciones GSAP: siempre con `gsap.context()` / `useGSAP` y limpieza al desmontar. Respetar `prefers-reduced-motion` (sin scroll suave ni animaciones de entrada si está activo).
 - Accesibilidad: HTML semántico, botones reales, `alt` en imágenes, contraste AA, foco visible, sonido desactivado por defecto.
 
