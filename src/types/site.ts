@@ -8,6 +8,8 @@ export type SocialLink = {
   label: string
   /** null mientras no esté confirmada: no se muestra */
   url: string | null
+  /** Plataforma para escuchar música (se muestra en los lanzamientos) */
+  streaming: boolean
 }
 
 export type ContactInfo = {

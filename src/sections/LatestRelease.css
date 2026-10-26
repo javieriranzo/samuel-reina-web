@@ -1,0 +1,112 @@
+.release {
+  padding: var(--space-section) var(--gutter);
+}
+
+.release__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-16);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.release__cover-area {
+  flex: 1 1 22rem;
+  max-width: 34rem;
+  perspective: 1200px;
+}
+
+.release__cover {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-cover);
+  transform: rotateY(-6deg);
+  will-change: transform;
+}
+
+.release__info {
+  flex: 1 1 26rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.release__kicker {
+  color: var(--color-accent);
+}
+
+.release__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 0.92;
+}
+
+.release__player {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.release__tracks {
+  display: flex;
+  flex-direction: column;
+}
+
+.release__track {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.release__track-number {
+  color: var(--color-accent);
+}
+
+.release__track-title {
+  flex: 1;
+  font-size: var(--text-lg);
+}
+
+.release__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.release__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 var(--space-6);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.release__link--primary {
+  border-color: var(--color-text);
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.release__link--primary:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .release__cover {
+    transform: none;
+  }
+}

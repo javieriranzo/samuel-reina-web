@@ -14,6 +14,7 @@
   --color-bg-glass: rgb(10 10 12 / 0.72); /* Cabecera con scroll */
   --color-bg-veil: rgb(10 10 12 / 0.4);
   --color-accent-glow: rgb(209 154 78 / 0.32);
+  --color-live-glow: rgb(224 53 43 / 0.14);
 
   /* Tipografía */
   --font-display: 'Instrument Serif', 'Times New Roman', serif;
@@ -53,6 +54,7 @@
   --radius-sm: 2px;
   --radius-md: 4px;
   --radius-pill: 999px;
+  --shadow-cover: 0 40px 80px rgb(0 0 0 / 0.6);
 
   /* Movimiento */
   --duration-fast: 200ms;
@@ -63,6 +65,7 @@
 
   /* Capas */
   --z-header: 100;
+  --z-intro: 500;
   --z-grain: 900;
   --z-cursor: 1000;
 }

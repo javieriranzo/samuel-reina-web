@@ -11,11 +11,15 @@ export const NAV_ITEMS: NavItem[] = [
 ]
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { label: 'Spotify', url: 'https://open.spotify.com/intl-es/artist/6iN98G1hjbVKib9xHNvjCQ' },
-  { label: 'Instagram', url: null },
-  { label: 'YouTube', url: null },
-  { label: 'TikTok', url: null },
-  { label: 'Apple Music', url: null },
+  {
+    label: 'Spotify',
+    url: 'https://open.spotify.com/intl-es/artist/6iN98G1hjbVKib9xHNvjCQ',
+    streaming: true,
+  },
+  { label: 'Instagram', url: null, streaming: false },
+  { label: 'YouTube', url: null, streaming: true },
+  { label: 'TikTok', url: null, streaming: false },
+  { label: 'Apple Music', url: null, streaming: true },
 ]
 
 export const CONTACT: ContactInfo = {

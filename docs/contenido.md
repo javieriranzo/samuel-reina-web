@@ -47,7 +47,8 @@ Colaboraciones: *Reina la Sed* — Novembre Elèctric, Samuel Reina.
 
 - [ ] Fotografías en alta resolución (retrato, directo, estudio) con derechos de uso.
 - [ ] Vídeo corto en bucle para el hero.
-- [ ] Portadas en alta resolución (las de Spotify son de 640 px).
+- [ ] Portadas en alta resolución (las de Spotify son de 640 px). Ahora mismo la web usa las de Spotify en `src/assets/images/` como provisionales.
+- [ ] Foto del hero en alta resolución (ahora: la foto de artista de Spotify, 640 px, se ve suave en pantallas grandes).
 - [ ] Créditos de doblaje: personaje, producción, año.
 - [ ] Fragmentos del demo reel autorizados.
 - [ ] Agenda de conciertos.
