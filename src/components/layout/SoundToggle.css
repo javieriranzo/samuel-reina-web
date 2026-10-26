@@ -1,0 +1,87 @@
+.sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: border-color var(--duration-fast) var(--ease-out);
+}
+
+.sound-toggle:hover {
+  border-color: var(--color-accent);
+}
+
+/* Mini ecualizador: plano en silencio, vivo con sonido */
+.sound-toggle__bars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 14px;
+}
+
+.sound-toggle__bars span {
+  width: 2px;
+  height: 3px;
+  border-radius: 1px;
+  background: var(--color-muted);
+  transition:
+    height var(--duration-base) var(--ease-out),
+    background-color var(--duration-base) var(--ease-out);
+}
+
+.sound-toggle[aria-pressed='true'] .sound-toggle__bars span {
+  background: var(--color-accent);
+  animation: sound-bars 0.9s var(--ease-in-out) infinite alternate;
+}
+
+.sound-toggle[aria-pressed='true'] .sound-toggle__bars span:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.sound-toggle[aria-pressed='true'] .sound-toggle__bars span:nth-child(3) {
+  animation-delay: -0.6s;
+}
+
+.sound-toggle[aria-pressed='true'] .sound-toggle__bars span:nth-child(4) {
+  animation-delay: -0.15s;
+}
+
+@keyframes sound-bars {
+  from {
+    height: 3px;
+  }
+  to {
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sound-toggle__text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+
+  .sound-toggle {
+    width: 44px;
+    justify-content: center;
+    padding: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sound-toggle[aria-pressed='true'] .sound-toggle__bars span {
+    animation: none;
+    height: 10px;
+  }
+}

@@ -10,6 +10,9 @@
   --color-accent: #d19a4e; /* Ámbar tungsteno */
   --color-live: #e0352b; /* Rojo ON AIR — solo directo, REC y entradas */
   --color-line: #2a2a30;
+  --color-void: #000; /* Bandas de cine, pie */
+  --color-bg-glass: rgb(10 10 12 / 0.72); /* Cabecera con scroll */
+  --color-bg-veil: rgb(10 10 12 / 0.4);
   --color-accent-glow: rgb(209 154 78 / 0.32);
 
   /* Tipografía */
@@ -44,6 +47,7 @@
   --space-section: clamp(5rem, 10vw, 9rem);
   --gutter: clamp(1rem, 4vw, 3.5rem);
   --max-width: 83rem;
+  --header-height: 80px; /* sincronizado con ANCHOR_OFFSET en SmoothScroll.tsx */
 
   /* Forma */
   --radius-sm: 2px;
@@ -58,6 +62,7 @@
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
   /* Capas */
+  --z-header: 100;
   --z-grain: 900;
   --z-cursor: 1000;
 }

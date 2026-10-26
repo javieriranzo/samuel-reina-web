@@ -11,7 +11,7 @@ Web oficial de **Samuel Reina**, cantante y actor de doblaje.
 
 ## Estado
 
-🟡 **Fase 1 — Base técnica.** Vite + React + TS, tokens de diseño, tipografías, scroll suave, grano y cursor. Home provisional.
+🟡 **Fase 2 — Layout.** Cabecera, menú móvil, pie «Fin» y botón de sonido sobre la base técnica de la fase 1. Home provisional.
 
 Hoja de ruta en [`docs/roadmap.md`](docs/roadmap.md).
 

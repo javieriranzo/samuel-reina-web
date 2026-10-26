@@ -52,3 +52,19 @@
   font-style: italic;
   color: var(--color-accent);
 }
+
+.home__placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-4);
+  min-height: 70svh;
+  padding: var(--space-section) var(--gutter);
+  border-top: 1px solid var(--color-line);
+}
+
+.home__placeholder h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+}

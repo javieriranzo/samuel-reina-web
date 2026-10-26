@@ -12,6 +12,11 @@ body {
   line-height: var(--leading-body);
 }
 
+/* Salto nativo a secciones (movimiento reducido) sin quedar bajo la cabecera */
+[id] {
+  scroll-margin-top: var(--header-height);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -26,6 +31,11 @@ a:hover {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
   border-radius: var(--radius-sm);
+}
+
+/* Destino del enlace «Saltar al contenido»: recibe foco sin mostrar contorno */
+main:focus {
+  outline: none;
 }
 
 ::selection {

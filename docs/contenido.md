@@ -55,3 +55,4 @@ Colaboraciones: *Reina la Sed* — Novembre Elèctric, Samuel Reina.
 - [ ] Logotipo o firma (si no existe, logotipo tipográfico en Instrument Serif).
 - [ ] Videoclip o actuación destacada.
 - [ ] Dominio y hosting.
+- [ ] Textos legales: aviso legal, privacidad y cookies (el pie ya enlaza a `/aviso-legal`, `/privacidad` y `/cookies`).
