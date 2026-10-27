@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
+import { Link } from 'react-router'
 import { NAV_ITEMS } from '@/data/site'
 import { useLenis } from '@/hooks/useLenis'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
@@ -76,15 +77,15 @@ export function Header() {
       data-menu-open={menuOpen}
     >
       <div className="site-header__bar">
-        <a href="#top" className="site-header__logo" aria-label="Samuel Reina, inicio">
+        <Link to="/" className="site-header__logo" aria-label="Samuel Reina, inicio">
           S<em>R</em>
-        </a>
+        </Link>
 
         <nav className="site-header__nav" aria-label="Principal">
           <ul role="list">
             {NAV_ITEMS.map((item) => (
               <li key={item.id}>
-                <a href={`#${item.id}`}>{item.label}</a>
+                <Link to={`/#${item.id}`}>{item.label}</Link>
               </li>
             ))}
           </ul>
@@ -113,14 +114,14 @@ export function Header() {
         <ul role="list" className="mobile-menu__list">
           {NAV_ITEMS.map((item, i) => (
             <li key={item.id} style={{ '--i': i } as CSSProperties}>
-              <a
+              <Link
                 ref={i === 0 ? firstLinkRef : undefined}
-                href={`#${item.id}`}
+                to={`/#${item.id}`}
                 onClick={() => setMenuOpen(false)}
               >
                 <span className="label">{String(i + 1).padStart(2, '0')}</span>
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

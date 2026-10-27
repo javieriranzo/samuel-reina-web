@@ -11,7 +11,19 @@ Web oficial de **Samuel Reina**, cantante y actor de doblaje.
 
 ## Estado
 
-🟡 **Fase 5 — Audio.** Home completa con reproductor global listo; doblaje, directo, vídeo, contacto y audio esperan contenido (ver `docs/contenido.md`).
+🟡 **Fase 6 — Páginas secundarias.** Home completa, reproductor de audio y páginas secundarias con su estructura; falta el contenido de Samuel (ver `docs/contenido.md`).
+
+### Rutas
+
+| Ruta | Página |
+|---|---|
+| `/` | Home |
+| `/biografia` | Biografía |
+| `/discografia` | Discografía completa |
+| `/discografia/:id` | Ficha de un lanzamiento |
+| `/doblaje` | Créditos de doblaje |
+| `/aviso-legal`, `/privacidad`, `/cookies` | Textos legales (borrador) |
+| cualquier otra | 404 «Fin de la cinta» |
 
 Hoja de ruta en [`docs/roadmap.md`](docs/roadmap.md).
 
@@ -21,6 +33,7 @@ Hoja de ruta en [`docs/roadmap.md`](docs/roadmap.md).
 |---|---|
 | Base | [Vite](https://vite.dev) + [React](https://react.dev) + TypeScript |
 | Animación | [GSAP](https://gsap.com) + ScrollTrigger |
+| Rutas | [React Router](https://reactrouter.com) (modo declarativo) |
 | Scroll suave | [Lenis](https://lenis.darkroom.engineering) |
 | Estilos | CSS moderno con *custom properties* (tokens de diseño) |
 | Tipografías | Instrument Serif · Inter Tight · JetBrains Mono |

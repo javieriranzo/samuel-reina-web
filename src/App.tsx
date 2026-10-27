@@ -1,33 +1,49 @@
-import { Cursor } from '@/components/layout/Cursor'
-import { FilmGrain } from '@/components/layout/FilmGrain'
-import { Footer } from '@/components/layout/Footer'
-import { Header } from '@/components/layout/Header'
-import { NowPlaying } from '@/components/layout/NowPlaying'
+import { lazy } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router'
 import { PlayerProvider } from '@/components/layout/PlayerProvider'
-import { SkipLink } from '@/components/layout/SkipLink'
+import { SiteLayout } from '@/components/layout/SiteLayout'
 import { SmoothScroll } from '@/components/layout/SmoothScroll'
 import { SoundProvider } from '@/components/layout/SoundProvider'
-import { MAIN_ID, PAGE_ID } from '@/lib/dom'
 import { Home } from '@/pages/Home'
+
+// La home va en el bundle principal; el resto se carga al visitarlo
+const BioPage = lazy(() => import('@/pages/BioPage').then((m) => ({ default: m.BioPage })))
+const DiscographyPage = lazy(() =>
+  import('@/pages/DiscographyPage').then((m) => ({ default: m.DiscographyPage })),
+)
+const ReleasePage = lazy(() =>
+  import('@/pages/ReleasePage').then((m) => ({ default: m.ReleasePage })),
+)
+const DubbingPage = lazy(() =>
+  import('@/pages/DubbingPage').then((m) => ({ default: m.DubbingPage })),
+)
+const LegalPage = lazy(() => import('@/pages/LegalPage').then((m) => ({ default: m.LegalPage })))
+const NotFoundPage = lazy(() =>
+  import('@/pages/NotFoundPage').then((m) => ({ default: m.NotFoundPage })),
+)
 
 export function App() {
   return (
-    <SmoothScroll>
-      <SoundProvider>
-        <PlayerProvider>
-          <SkipLink />
-          <Header />
-          <div id={PAGE_ID}>
-            <main id={MAIN_ID} tabIndex={-1}>
-              <Home />
-            </main>
-            <Footer />
-          </div>
-          <FilmGrain />
-          <NowPlaying />
-          <Cursor />
-        </PlayerProvider>
-      </SoundProvider>
-    </SmoothScroll>
+    <BrowserRouter>
+      <SmoothScroll>
+        <SoundProvider>
+          <PlayerProvider>
+            <Routes>
+              <Route element={<SiteLayout />}>
+                <Route index element={<Home />} />
+                <Route path="biografia" element={<BioPage />} />
+                <Route path="discografia" element={<DiscographyPage />} />
+                <Route path="discografia/:id" element={<ReleasePage />} />
+                <Route path="doblaje" element={<DubbingPage />} />
+                <Route path="aviso-legal" element={<LegalPage doc="aviso-legal" />} />
+                <Route path="privacidad" element={<LegalPage doc="privacidad" />} />
+                <Route path="cookies" element={<LegalPage doc="cookies" />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Route>
+            </Routes>
+          </PlayerProvider>
+        </SoundProvider>
+      </SmoothScroll>
+    </BrowserRouter>
   )
 }

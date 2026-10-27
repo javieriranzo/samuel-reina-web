@@ -1,0 +1,110 @@
+.release-page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--header-height) + var(--space-16)) var(--gutter) var(--space-section);
+}
+
+.release-page__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--space-16);
+}
+
+.release-page__cover {
+  flex: 1 1 20rem;
+  max-width: 34rem;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-cover);
+}
+
+.release-page__info {
+  flex: 1 1 24rem;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.release-page__kicker {
+  color: var(--color-accent);
+}
+
+.release-page__kicker a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.release-page__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  line-height: 0.92;
+}
+
+.release-page__description {
+  max-width: 40rem;
+  font-size: var(--text-lg);
+  font-weight: 300;
+}
+
+.release-page__tracklist ol {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-3);
+}
+
+.release-page__tracklist li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-top: 1px solid var(--color-line);
+  font-size: var(--text-lg);
+}
+
+.release-page__tracklist li > span:nth-child(2) {
+  flex: 1;
+}
+
+.release-page__listen {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-pill);
+  background: var(--color-text);
+  color: var(--color-bg);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.release-page__listen:hover {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.release-page__nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-top: var(--space-section);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-line);
+}
+
+.release-page__nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+}
+
+.release-page__nav-link--next {
+  margin-left: auto;
+  text-align: right;
+}

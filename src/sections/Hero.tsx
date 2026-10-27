@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router'
 import { gsap, useGSAP } from '@/animations/gsap'
 import { Timecode } from '@/components/ui/Timecode'
 import { LATEST_RELEASE } from '@/data/releases'
@@ -87,10 +88,10 @@ export function Hero({ ready }: Props) {
 
         <div className="hero__meta" data-hero-fade>
           <Timecode seconds={1 / 25} />
-          <a href="#lanzamiento" className="hero__scroll label">
+          <Link to="/#lanzamiento" className="hero__scroll label">
             Desplázate
             <span className="hero__scroll-line" aria-hidden="true" />
-          </a>
+          </Link>
           <span className="label hero__new">Nuevo · {LATEST_RELEASE.title}</span>
         </div>
       </div>

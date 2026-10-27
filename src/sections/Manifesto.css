@@ -17,3 +17,11 @@
   line-height: 1.08;
   text-wrap: balance;
 }
+
+.manifesto__footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-4);
+}

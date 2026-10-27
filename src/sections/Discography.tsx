@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router'
 import { gsap, useGSAP } from '@/animations/gsap'
 import { useReveal } from '@/animations/useReveal'
 import { SectionHeading } from '@/components/ui/SectionHeading'
@@ -52,28 +53,39 @@ export function Discography() {
           <SectionHeading id="discography-title" kicker={`Discografía · ${span}`}>
             La <em>música</em>
           </SectionHeading>
-          <p className="label discography__hint" aria-hidden="true">
-            Rollo 1 · {RELEASES.length} fotogramas →
-          </p>
+          <div className="discography__aside">
+            <p className="label discography__hint" aria-hidden="true">
+              Rollo 1 · {RELEASES.length} fotogramas →
+            </p>
+            <Link to="/discografia" className="more-link">
+              Discografía completa <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
 
         <div ref={viewportRef} className="discography__viewport">
           <ol ref={stripRef} className="discography__strip" role="list">
             {RELEASES.map((release, i) => (
-              <li key={release.id} className="discography__frame" data-cursor="play">
-                <img
-                  className="discography__cover"
-                  src={release.cover}
-                  alt={`Portada de ${release.title}`}
-                  width={640}
-                  height={640}
-                  loading="lazy"
-                />
-                <div className="discography__meta label">
-                  <span>{String(i + 1).padStart(2, '0')}</span>
-                  <span>{release.year}</span>
-                </div>
-                <h3 className="discography__title">{release.title}</h3>
+              <li key={release.id}>
+                <Link
+                  to={`/discografia/${release.id}`}
+                  className="discography__frame"
+                  data-cursor="play"
+                >
+                  <img
+                    className="discography__cover"
+                    src={release.cover}
+                    alt={`Portada de ${release.title}`}
+                    width={640}
+                    height={640}
+                    loading="lazy"
+                  />
+                  <div className="discography__meta label">
+                    <span>{String(i + 1).padStart(2, '0')}</span>
+                    <span>{release.year}</span>
+                  </div>
+                  <h3 className="discography__title">{release.title}</h3>
+                </Link>
               </li>
             ))}
           </ol>

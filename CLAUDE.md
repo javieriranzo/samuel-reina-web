@@ -12,7 +12,7 @@ Web oficial de **Samuel Reina**, cantante y actor de doblaje. Web de una sola p�
 
 ## Stack
 
-Vite + React + TypeScript · GSAP (ScrollTrigger) · Lenis · CSS con custom properties · Fontsource · oxlint + Prettier. Node ≥ 24.
+Vite + React + TypeScript · React Router · GSAP (ScrollTrigger) · Lenis · CSS con custom properties · Fontsource · oxlint + Prettier. Node ≥ 24.
 
 ## Comandos
 
@@ -38,6 +38,9 @@ Vite + React + TypeScript · GSAP (ScrollTrigger) · Lenis · CSS con custom pro
 - GSAP se importa siempre desde `@/animations/gsap` (ahí se registran los plugins).
 - Imports internos con el alias `@/` (→ `src/`).
 - El cursor cambia a PLAY/REC con `data-cursor="play" | "rec"` en el elemento.
+- Enlaces internos siempre con `Link` de `react-router`, también las anclas de la home (`to="/#musica"`); el scroll lo gestiona `ScrollManager`. Nunca `<a href="#...">`.
+- Páginas en `src/pages/` (una por ruta, registradas en `src/App.tsx` con `lazy` salvo la home), con `usePageMeta` y `PageHeader` como único `h1`.
+- Si se añade una clave nueva de `localStorage`/`sessionStorage`, añadirla a `BROWSER_STORAGE` en `src/data/legal.ts` (se lista en `/cookies`).
 - Animaciones GSAP: siempre con `gsap.context()` / `useGSAP` y limpieza al desmontar. Respetar `prefers-reduced-motion` (sin scroll suave ni animaciones de entrada si está activo).
 - Accesibilidad: HTML semántico, botones reales, `alt` en imágenes, contraste AA, foco visible, sonido desactivado por defecto.
 

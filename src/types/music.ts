@@ -19,4 +19,10 @@ export type Release = {
   cover: string
   /** Temas conocidos; no necesariamente el listado completo */
   highlightedTracks: Track[]
+  /** Listado completo, cuando se reciba */
+  tracklist?: Track[]
+  /** Enlace al disco en Spotify (si no, se usa el perfil del artista) */
+  spotifyUrl?: string
+  /** Texto sobre el disco (créditos, contexto) */
+  description?: string
 }

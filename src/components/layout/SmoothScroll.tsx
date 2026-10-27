@@ -5,9 +5,6 @@ import { gsap, ScrollTrigger } from '@/animations/gsap'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { LenisContext } from '@/lib/contexts'
 
-/** Compensa la cabecera fija al saltar a una sección (mismo valor que `--header-height`). */
-const ANCHOR_OFFSET = -80
-
 type Props = { children: ReactNode }
 
 /** Scroll suave con Lenis, sincronizado con ScrollTrigger. Nativo si hay movimiento reducido. */
@@ -18,7 +15,7 @@ export function SmoothScroll({ children }: Props) {
   useEffect(() => {
     if (reducedMotion) return
 
-    const instance = new Lenis({ lerp: 0.1, anchors: { offset: ANCHOR_OFFSET } })
+    const instance = new Lenis({ lerp: 0.1 })
     instance.on('scroll', ScrollTrigger.update)
 
     const tick = (time: number) => instance.raf(time * 1000)

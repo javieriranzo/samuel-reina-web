@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router'
 import { useReveal } from '@/animations/useReveal'
 import './TwoVoices.css'
 
@@ -9,7 +10,7 @@ export function TwoVoices() {
 
   return (
     <section ref={rootRef} className="voices" aria-label="Dos voces">
-      <a href="#musica" className="voices__side voices__side--music" data-cursor="play">
+      <Link to="/#musica" className="voices__side voices__side--music" data-cursor="play">
         <span className="label voices__kicker" data-reveal>
           <span aria-hidden="true">▶ </span>La voz que se ve
         </span>
@@ -19,9 +20,9 @@ export function TwoVoices() {
         <span className="voices__desc" data-reveal>
           Escenario · discos · directo <span aria-hidden="true">→</span>
         </span>
-      </a>
+      </Link>
 
-      <a href="#doblaje" className="voices__side voices__side--dubbing" data-cursor="rec">
+      <Link to="/#doblaje" className="voices__side voices__side--dubbing" data-cursor="rec">
         <span className="label voices__kicker" data-reveal>
           <span aria-hidden="true">● </span>La voz que no se ve
         </span>
@@ -31,7 +32,7 @@ export function TwoVoices() {
         <span className="voices__desc" data-reveal>
           Estudio · personajes · demo reel <span aria-hidden="true">→</span>
         </span>
-      </a>
+      </Link>
     </section>
   )
 }

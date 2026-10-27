@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router'
 import { useReveal } from '@/animations/useReveal'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { Waveform } from '@/components/ui/Waveform'
@@ -56,6 +57,9 @@ export function DubbingCredits() {
           <p className="label">Personajes, producciones y demo reel · Próximamente</p>
         </div>
       )}
+      <Link to="/doblaje" className="more-link">
+        Todos los créditos <span aria-hidden="true">→</span>
+      </Link>
     </section>
   )
 }

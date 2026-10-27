@@ -1,0 +1,40 @@
+.page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--header-height) + var(--space-16)) var(--gutter) var(--space-12);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.page-header__kicker--accent {
+  color: var(--color-accent);
+}
+
+.page-header__kicker--live {
+  color: var(--color-live);
+}
+
+.page-header__title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 11vw, 9.5rem);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+}
+
+.page-header__title em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.page-header__intro {
+  max-width: 40rem;
+  font-size: var(--text-lg);
+  color: var(--color-muted);
+}
+
+/* Reserva de altura mientras carga una página diferida */
+.page-loading {
+  min-height: 100svh;
+}

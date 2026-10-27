@@ -55,6 +55,9 @@ Colaboraciones: *Reina la Sed* — Novembre Elèctric, Samuel Reina.
 | Fragmentos de temas (`preview`) | `src/data/releases.ts` + archivo en `public/audio/` |
 | Fragmentos del demo reel (`clip`) | `src/data/dubbing.ts` + archivo en `public/audio/` |
 | Saludo al activar el sonido | `GREETING_AUDIO` en `src/data/media.ts` + archivo en `public/audio/` |
+| Biografía (corta y párrafos) | `src/data/bio.ts` |
+| Tracklist, enlace y texto de cada disco | `tracklist`, `spotifyUrl`, `description` en `src/data/releases.ts` |
+| Datos del titular (textos legales) | `src/data/legal.ts` |
 | Frase del manifiesto | `src/sections/Manifesto.tsx` (ahora: frase del concepto, no es cita de Samuel) |
 
 ## Pendiente de recibir
@@ -72,4 +75,5 @@ Colaboraciones: *Reina la Sed* — Novembre Elèctric, Samuel Reina.
 - [ ] Logotipo o firma (si no existe, logotipo tipográfico en Instrument Serif).
 - [ ] Videoclip o actuación destacada.
 - [ ] Dominio y hosting.
-- [ ] Textos legales: aviso legal, privacidad y cookies (el pie ya enlaza a `/aviso-legal`, `/privacidad` y `/cookies`).
+- [ ] Textos legales: datos del titular (nombre, NIF, domicilio, email) y revisión profesional de `/aviso-legal`, `/privacidad` y `/cookies` (ahora en borrador).
+- [ ] Tracklists completos y enlaces de Spotify de cada disco.

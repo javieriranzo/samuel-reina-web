@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router'
 import { useReveal } from '@/animations/useReveal'
 import { SectionHeading } from '@/components/ui/SectionHeading'
 import { upcomingConcerts } from '@/data/concerts'
@@ -61,9 +62,9 @@ export function Live() {
         ) : (
           <div className="live__empty" data-reveal>
             <p className="live__empty-title">No hay fechas anunciadas ahora mismo.</p>
-            <a href="#contacto" className="live__empty-link">
+            <Link to="/#contacto" className="live__empty-link">
               Contratar a Samuel <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </div>
         )}
       </div>

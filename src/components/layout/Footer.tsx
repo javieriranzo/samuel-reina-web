@@ -1,3 +1,4 @@
+import { Link } from 'react-router'
 import { CONTACT, SOCIAL_LINKS } from '@/data/site'
 import './Footer.css'
 
@@ -43,13 +44,13 @@ export function Footer() {
         <p>© {YEAR} Samuel Reina</p>
         <ul role="list">
           <li>
-            <a href="/aviso-legal">Aviso legal</a>
+            <Link to="/aviso-legal">Aviso legal</Link>
           </li>
           <li>
-            <a href="/privacidad">Privacidad</a>
+            <Link to="/privacidad">Privacidad</Link>
           </li>
           <li>
-            <a href="/cookies">Cookies</a>
+            <Link to="/cookies">Cookies</Link>
           </li>
         </ul>
       </div>

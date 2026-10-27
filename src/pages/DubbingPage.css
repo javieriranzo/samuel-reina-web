@@ -1,0 +1,42 @@
+.dubbing {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-16) var(--gutter) var(--space-section);
+}
+
+.dubbing__year {
+  display: grid;
+  grid-template-columns: minmax(0, 8rem) minmax(0, 1fr);
+  gap: var(--space-8);
+}
+
+.dubbing__year-label {
+  color: var(--color-live);
+  padding-top: var(--space-4);
+}
+
+.dubbing__credit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-6);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.dubbing__production {
+  flex: 1 1 16rem;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  line-height: var(--leading-snug);
+}
+
+@media (max-width: 640px) {
+  .dubbing__year {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-2);
+  }
+}

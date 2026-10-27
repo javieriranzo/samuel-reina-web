@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { Link } from 'react-router'
 import { gsap, useGSAP } from '@/animations/gsap'
 import './Manifesto.css'
 
@@ -49,7 +50,12 @@ export function Manifesto() {
           </span>
         ))}
       </p>
-      <p className="label">— La voz en escena</p>
+      <div className="manifesto__footer">
+        <p className="label">— La voz en escena</p>
+        <Link to="/biografia" className="more-link">
+          Biografía <span aria-hidden="true">→</span>
+        </Link>
+      </div>
     </section>
   )
 }

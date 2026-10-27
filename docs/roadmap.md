@@ -9,6 +9,6 @@ Cada fase se convierte en uno o varios cambios de OpenSpec (`openspec/changes/`)
 - [x] **Fase 4 — Home (segunda mitad).** Discografía, Créditos de doblaje, En directo, Manifiesto, Vídeo, Contacto. → `openspec/changes/add-home-closing/`
 - [ ] **Newsletter.** Elegir proveedor (Mailchimp, Brevo, Buttondown…) e integrar el formulario.
 - [x] **Fase 5 — Audio.** Reproductor con onda real, demo reel, saludo con su voz (infraestructura lista; faltan los archivos). → `openspec/changes/add-audio-player/`
-- [ ] **Fase 6 — Páginas secundarias.** Biografía, discografía completa, doblaje, contacto.
+- [x] **Fase 6 — Páginas secundarias.** Biografía, discografía y fichas de disco, doblaje, legales y 404 (estructura lista; falta contenido). → `openspec/changes/add-secondary-pages/`
 - [ ] **Fase 7 — Pulido.** SEO (metadatos, OG, datos estructurados `MusicGroup`/`Person`), rendimiento, accesibilidad, analítica.
-- [ ] **Fase 8 — Publicación.** Dominio, hosting, despliegue continuo.
+- [ ] **Fase 8 — Publicación.** Dominio, hosting, despliegue continuo. El hosting debe servir `index.html` en cualquier ruta (SPA) y revisar los textos legales antes de publicar.

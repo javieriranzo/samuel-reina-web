@@ -48,7 +48,7 @@
   --space-section: clamp(5rem, 10vw, 9rem);
   --gutter: clamp(1rem, 4vw, 3.5rem);
   --max-width: 83rem;
-  --header-height: 80px; /* sincronizado con ANCHOR_OFFSET en SmoothScroll.tsx */
+  --header-height: 80px; /* también es el scroll-margin-top de las anclas (global.css) */
 
   /* Forma */
   --radius-sm: 2px;

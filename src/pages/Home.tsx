@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react'
+import { usePageMeta } from '@/hooks/usePageMeta'
 import { shouldPlayIntro } from '@/lib/intro'
 import { Contact } from '@/sections/Contact'
 import { Discography } from '@/sections/Discography'
@@ -14,6 +15,7 @@ import { TwoVoices } from '@/sections/TwoVoices'
 type IntroState = 'playing' | 'revealing' | 'done'
 
 export function Home() {
+  usePageMeta(null)
   const [intro, setIntro] = useState<IntroState>(() => (shouldPlayIntro() ? 'playing' : 'done'))
   const onReveal = useCallback(() => setIntro('revealing'), [])
   const onComplete = useCallback(() => setIntro('done'), [])

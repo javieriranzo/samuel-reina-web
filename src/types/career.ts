@@ -22,3 +22,26 @@ export type FeaturedVideo = {
   /** ID de YouTube */
   youtubeId: string
 }
+
+export type Bio = {
+  /** Una o dos frases para cabeceras y metadatos */
+  short: string | null
+  /** Biografía larga, un elemento por párrafo */
+  paragraphs: string[]
+}
+
+/** Datos del titular de la web para los textos legales */
+export type LegalOwner = {
+  name: string | null
+  nif: string | null
+  address: string | null
+  email: string | null
+}
+
+/** Almacenamiento que la web usa en el navegador (se lista en /cookies) */
+export type BrowserStorageItem = {
+  key: string
+  type: 'localStorage' | 'sessionStorage'
+  purpose: string
+  duration: string
+}

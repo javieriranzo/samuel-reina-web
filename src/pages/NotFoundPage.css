@@ -1,0 +1,41 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-8);
+  min-height: 100svh;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--header-height) var(--gutter) var(--space-16);
+}
+
+.not-found__tc {
+  color: var(--color-live);
+}
+
+.not-found__title {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  line-height: var(--leading-tight);
+}
+
+.not-found__title em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.not-found__text {
+  font-size: var(--text-lg);
+  color: var(--color-muted);
+}
+
+.not-found__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 var(--space-6);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius-pill);
+  color: var(--color-accent);
+}
