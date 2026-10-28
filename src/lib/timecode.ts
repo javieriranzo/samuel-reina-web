@@ -1,4 +1,4 @@
-const FPS = 25
+export const FPS = 25
 
 const pad = (n: number) => String(n).padStart(2, '0')
 

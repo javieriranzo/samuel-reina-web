@@ -13,7 +13,7 @@ export function Contact() {
     <section ref={rootRef} id="contacto" className="contact" aria-labelledby="contact-title">
       <div className="contact__inner">
         <SectionHeading id="contact-title" kicker="Contratación y prensa">
-          ¿Hablamos<em>?</em>
+          ¿Hablamos?
         </SectionHeading>
 
         <div className="contact__grid">

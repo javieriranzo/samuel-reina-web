@@ -10,7 +10,7 @@ import { Intro } from '@/sections/Intro'
 import { LatestRelease } from '@/sections/LatestRelease'
 import { Live } from '@/sections/Live'
 import { Manifesto } from '@/sections/Manifesto'
-import { TwoVoices } from '@/sections/TwoVoices'
+import { ReelTimeline } from '@/sections/ReelTimeline'
 
 type IntroState = 'playing' | 'revealing' | 'done'
 
@@ -25,13 +25,13 @@ export function Home() {
       {intro !== 'done' && <Intro onReveal={onReveal} onComplete={onComplete} />}
       <Hero ready={intro !== 'playing'} />
       <LatestRelease />
-      <TwoVoices />
       <Discography />
       <DubbingCredits />
       <Live />
       <Manifesto />
       <FeaturedVideo />
       <Contact />
+      <ReelTimeline enabled={intro === 'done'} />
     </>
   )
 }

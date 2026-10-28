@@ -43,6 +43,7 @@ export function ReleasePage() {
         <div className="release-page__info">
           <p className="label release-page__kicker">
             <Link to="/discografia">Discografía</Link> ·{' '}
+            {release.format === 'single' ? 'Sencillo' : 'Disco'} ·{' '}
             <time dateTime={release.releaseDate}>{formatDate(release.releaseDate)}</time>
           </p>
           <h1 className="release-page__title">{release.title}</h1>

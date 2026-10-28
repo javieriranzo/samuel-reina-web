@@ -45,3 +45,10 @@ export type BrowserStorageItem = {
   purpose: string
   duration: string
 }
+
+export type HeroVideo = {
+  /** Archivo en public/video/ (p. ej. '/video/hero.mp4'), H.264 */
+  mp4: string
+  /** Alternativa más ligera para navegadores que la admitan */
+  webm?: string
+}

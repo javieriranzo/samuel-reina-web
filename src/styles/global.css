@@ -64,13 +64,6 @@ main:focus {
   color: var(--color-muted);
 }
 
-/* Con cursor personalizado activo se oculta el nativo */
-.has-custom-cursor,
-.has-custom-cursor a,
-.has-custom-cursor button {
-  cursor: none;
-}
-
 /* Enlace «ver más» de las secciones hacia las páginas secundarias */
 .more-link {
   display: inline-flex;
@@ -84,4 +77,10 @@ main:focus {
 
 .more-link:hover {
   color: var(--color-text);
+}
+
+/* Máscaras de línea de SplitText en los titulares: holgura para los descendentes */
+[data-reveal-title] > div {
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
 }

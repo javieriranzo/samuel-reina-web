@@ -23,7 +23,7 @@
   line-height: 0.92;
 }
 
+/* Cursiva = voz en off (doblaje); en marfil, el ámbar queda para la luz */
 .section-heading__title em {
   font-style: italic;
-  color: var(--color-accent);
 }

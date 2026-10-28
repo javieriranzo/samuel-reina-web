@@ -2,12 +2,13 @@
   border-top: 1px solid var(--color-line);
 }
 
-.discography__pin {
+.discography__inner {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: var(--space-12);
-  padding: var(--space-section) 0;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-section) var(--gutter) var(--space-16);
 }
 
 .discography__head {
@@ -16,86 +17,135 @@
   justify-content: space-between;
   align-items: flex-end;
   gap: var(--space-4);
-  padding: 0 var(--gutter);
 }
 
-/* Tira de película: banda negra con perforaciones arriba y abajo */
-.discography__viewport {
-  position: relative;
-  overflow-x: auto;
-  overscroll-behavior-x: contain;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-line) transparent;
-}
-
-.discography__strip {
+.discography__body {
   display: flex;
-  gap: var(--space-2);
-  width: max-content;
-  margin: 0 var(--gutter);
-  padding: var(--space-12) var(--space-2);
-  background:
-    radial-gradient(circle, var(--color-bg) 3px, transparent 3.5px) 0 6px / 20px 16px repeat-x,
-    radial-gradient(circle, var(--color-bg) 3px, transparent 3.5px) 0 calc(100% - 6px) / 20px 16px
-      repeat-x,
-    var(--color-void);
-  border-radius: var(--radius-sm);
+  gap: var(--space-16);
+  align-items: flex-start;
 }
 
-.discography__frame {
+.discography__groups {
+  flex: 1 1 0;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  /* Limitada también por la altura para que la sección fijada quepa en pantalla */
-  width: clamp(13rem, min(24vw, 36svh), 20rem);
+  gap: var(--space-12);
 }
 
-.discography__cover {
-  width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  filter: grayscale(0.35);
-  transition: filter var(--duration-slow) var(--ease-out);
-}
-
-.discography__frame:hover .discography__cover {
-  filter: none;
-}
-
-.discography__meta {
+.discography__group {
   display: flex;
-  justify-content: space-between;
-  padding: 0 var(--space-1);
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.discography__list {
+  border-top: 1px solid var(--color-line);
+}
+
+.discography__item {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  align-items: baseline;
+  gap: var(--space-2) var(--space-6);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-line);
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+/* Al señalar un disco, el resto se apaga */
+.discography__list:has(.discography__item:hover) .discography__item:not(:hover),
+.discography__list:has(.discography__item:focus-visible) .discography__item:not(:focus-visible) {
+  opacity: 0.35;
+}
+
+.discography__item:hover {
+  color: inherit;
+}
+
+.discography__thumb {
+  display: none;
+}
+
+.discography__year {
+  color: var(--color-accent);
 }
 
 .discography__title {
-  padding: 0 var(--space-1);
   font-family: var(--font-display);
-  font-size: var(--text-lg);
-  line-height: var(--leading-snug);
+  font-size: clamp(1.75rem, 3.6vw, 3.25rem);
+  line-height: 1.02;
+  transition: translate var(--duration-base) var(--ease-out);
 }
 
-/* Fijada en horizontal: sin scroll propio (lo mueve GSAP) */
-@media (min-width: 900px) and (prefers-reduced-motion: no-preference) {
-  .discography__pin {
-    min-height: 100svh;
-    gap: var(--space-8);
-    padding: calc(var(--header-height) + var(--space-4)) 0 var(--space-8);
+/* Los sencillos, un escalón por debajo de los discos */
+.discography__group--sencillos .discography__item {
+  padding: var(--space-4) 0;
+}
+
+.discography__group--sencillos .discography__title {
+  font-size: clamp(1.375rem, 2.4vw, 2rem);
+}
+
+.discography__item:hover .discography__title,
+.discography__item:focus-visible .discography__title {
+  translate: var(--space-3) 0;
+}
+
+/* Portada fija del disco señalado: todas apiladas, solo la activa visible */
+.discography__preview {
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-8));
+  display: grid;
+  flex: 0 0 min(34vw, 30rem);
+  aspect-ratio: 1;
+}
+
+.discography__cover {
+  grid-area: 1 / 1;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-cover);
+  opacity: 0;
+  scale: 1.03;
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    scale var(--duration-slow) var(--ease-out);
+}
+
+.discography__cover[data-active='true'] {
+  opacity: 1;
+  scale: 1;
+}
+
+@media (max-width: 899px) {
+  .discography__preview {
+    display: none;
   }
 
-  .discography__viewport {
-    overflow: hidden;
+  .discography__item {
+    grid-template-columns: 4rem minmax(0, 1fr);
+    align-items: center;
+    gap: var(--space-1) var(--space-4);
+    padding: var(--space-4) 0;
   }
 
-  .discography__strip {
-    margin-right: var(--gutter);
+  .discography__thumb {
+    display: block;
+    grid-row: span 2;
+    width: 4rem;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
   }
 }
 
-.discography__aside {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--space-2);
+@media (prefers-reduced-motion: reduce) {
+  .discography__item,
+  .discography__title,
+  .discography__cover {
+    transition: none;
+  }
 }

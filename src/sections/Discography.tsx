@@ -1,94 +1,102 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Link } from 'react-router'
-import { gsap, useGSAP } from '@/animations/gsap'
 import { useReveal } from '@/animations/useReveal'
+import { CollaborationList } from '@/components/ui/CollaborationList'
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import { RELEASES } from '@/data/releases'
+import { ALBUMS, RELEASES, SINGLES } from '@/data/releases'
+import type { Release } from '@/types/music'
 import { TopTracks } from './TopTracks'
 import './Discography.css'
-
-// Mismo corte que en Discography.css
-const PIN_QUERY = '(min-width: 900px) and (prefers-reduced-motion: no-preference)'
 
 const years = RELEASES.map((r) => r.year)
 const span = `${Math.min(...years)}—${Math.max(...years)}`
 
+const GROUPS = [
+  { id: 'discos', title: 'Discos', releases: ALBUMS },
+  { id: 'sencillos', title: 'Sencillos', releases: SINGLES },
+]
+
+/** Índice de discos y sencillos y, en escritorio, la portada del señalado. */
 export function Discography() {
   const rootRef = useRef<HTMLElement>(null)
-  const pinRef = useRef<HTMLDivElement>(null)
-  const viewportRef = useRef<HTMLDivElement>(null)
-  const stripRef = useRef<HTMLOListElement>(null)
-
-  // En escritorio la sección se fija y la tira avanza en horizontal con el scroll
-  useGSAP(
-    () => {
-      const mm = gsap.matchMedia()
-      mm.add(PIN_QUERY, () => {
-        const distance = () => stripRef.current!.scrollWidth - viewportRef.current!.clientWidth
-        gsap.to(stripRef.current, {
-          x: () => -distance(),
-          ease: 'none',
-          scrollTrigger: {
-            trigger: pinRef.current,
-            start: 'top top',
-            end: () => `+=${distance()}`,
-            pin: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-          },
-        })
-      })
-      return () => mm.revert()
-    },
-    { scope: rootRef },
-  )
-
-  // Después del pin: así ScrollTrigger calcula sus posiciones contando el espacio del pin
+  // Lanzamiento señalado con el puntero o el foco; por defecto, el disco más reciente
+  const [active, setActive] = useState(ALBUMS[0].id)
   useReveal(rootRef)
+
+  const item = (release: Release) => (
+    <li key={release.id} data-reveal>
+      <Link
+        to={`/discografia/${release.id}`}
+        className="discography__item"
+        data-cursor="play"
+        onPointerEnter={() => setActive(release.id)}
+        onFocus={() => setActive(release.id)}
+      >
+        <img
+          className="discography__thumb"
+          src={release.cover}
+          alt=""
+          width={640}
+          height={640}
+          loading="lazy"
+        />
+        <span className="label discography__year">{release.year}</span>
+        <span className="discography__title">{release.title}</span>
+      </Link>
+    </li>
+  )
 
   return (
     <section ref={rootRef} id="musica" className="discography" aria-labelledby="discography-title">
-      <div ref={pinRef} className="discography__pin">
+      <div className="discography__inner">
         <div className="discography__head">
           <SectionHeading id="discography-title" kicker={`Discografía · ${span}`}>
-            La <em>música</em>
+            La música
           </SectionHeading>
-          <div className="discography__aside">
-            <p className="label discography__hint" aria-hidden="true">
-              Rollo 1 · {RELEASES.length} fotogramas →
-            </p>
-            <Link to="/discografia" className="more-link">
-              Discografía completa <span aria-hidden="true">→</span>
-            </Link>
-          </div>
+          <Link to="/discografia" className="more-link">
+            Discografía completa <span aria-hidden="true">→</span>
+          </Link>
         </div>
 
-        <div ref={viewportRef} className="discography__viewport">
-          <ol ref={stripRef} className="discography__strip" role="list">
-            {RELEASES.map((release, i) => (
-              <li key={release.id}>
-                <Link
-                  to={`/discografia/${release.id}`}
-                  className="discography__frame"
-                  data-cursor="play"
+        <div className="discography__body">
+          <div className="discography__groups">
+            {GROUPS.map((group) => (
+              <div key={group.id} className={`discography__group discography__group--${group.id}`}>
+                <h3 className="label discography__group-title" id={`discography-${group.id}`}>
+                  {group.title}
+                </h3>
+                <ol
+                  className="discography__list"
+                  role="list"
+                  aria-labelledby={`discography-${group.id}`}
                 >
-                  <img
-                    className="discography__cover"
-                    src={release.cover}
-                    alt={`Portada de ${release.title}`}
-                    width={640}
-                    height={640}
-                    loading="lazy"
-                  />
-                  <div className="discography__meta label">
-                    <span>{String(i + 1).padStart(2, '0')}</span>
-                    <span>{release.year}</span>
-                  </div>
-                  <h3 className="discography__title">{release.title}</h3>
-                </Link>
-              </li>
+                  {group.releases.map(item)}
+                </ol>
+              </div>
             ))}
-          </ol>
+
+            <div className="discography__group">
+              <h3 className="label discography__group-title" id="discography-colaboraciones">
+                Colaboraciones
+              </h3>
+              <CollaborationList labelledBy="discography-colaboraciones" />
+            </div>
+          </div>
+
+          <div className="discography__preview" aria-hidden="true">
+            {RELEASES.map((release) => (
+              <img
+                key={release.id}
+                className="discography__cover"
+                data-active={release.id === active}
+                src={release.cover}
+                alt=""
+                width={640}
+                height={640}
+                loading="lazy"
+              />
+            ))}
+          </div>
         </div>
       </div>
 

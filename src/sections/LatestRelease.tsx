@@ -80,7 +80,7 @@ export function LatestRelease() {
             <time dateTime={release.releaseDate}>{formatDate(release.releaseDate)}</time>
           </p>
 
-          <h2 id="release-title" className="release__title" data-reveal>
+          <h2 id="release-title" className="release__title" data-reveal-title>
             {release.title}
           </h2>
 
@@ -91,7 +91,11 @@ export function LatestRelease() {
               {platforms.map((platform, i) => (
                 <li key={platform.label}>
                   <a
-                    href={platform.url!}
+                    href={
+                      platform.label === 'Spotify' && release.spotifyUrl
+                        ? release.spotifyUrl
+                        : platform.url!
+                    }
                     className={`release__link ${i === 0 ? 'release__link--primary' : ''}`}
                     target="_blank"
                     rel="noreferrer"

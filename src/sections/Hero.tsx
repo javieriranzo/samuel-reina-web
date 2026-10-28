@@ -1,10 +1,16 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link } from 'react-router'
 import { gsap, useGSAP } from '@/animations/gsap'
 import { Timecode } from '@/components/ui/Timecode'
+import { HERO_VIDEO } from '@/data/media'
 import { LATEST_RELEASE } from '@/data/releases'
+import { useReducedMotion } from '@/hooks/useReducedMotion'
 import artistPhoto from '@/assets/images/artist.jpg'
 import './Hero.css'
+
+// Ahorro de datos activado en el navegador (no estándar: solo Chromium)
+const saveData =
+  (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true
 
 type Props = {
   /** false mientras la intro tapa la portada */
@@ -13,6 +19,24 @@ type Props = {
 
 export function Hero({ ready }: Props) {
   const rootRef = useRef<HTMLElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const reducedMotion = useReducedMotion()
+  const video = HERO_VIDEO && !reducedMotion && !saveData ? HERO_VIDEO : null
+
+  // Reproducir solo mientras la portada está en pantalla
+  useEffect(() => {
+    const el = videoRef.current
+    const root = rootRef.current
+    if (!el || !root) return
+    // React no siempre aplica `muted` antes del autoplay: sin él, el navegador lo bloquea
+    el.muted = true
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) el.play().catch(() => {})
+      else el.pause()
+    })
+    observer.observe(root)
+    return () => observer.disconnect()
+  }, [video])
 
   // Entrada: líneas del nombre desde su máscara, foto que se revela, rótulos que aparecen
   useGSAP(
@@ -20,6 +44,9 @@ export function Hero({ ready }: Props) {
       const mm = gsap.matchMedia()
       mm.add('(prefers-reduced-motion: no-preference)', () => {
         const hidden = () => {
+          // Limpiar antes: si se desmonta a mitad de la entrada, GSAP conserva un `y` en px
+          // que dejaría el nombre bajo la máscara al volver a montarse
+          gsap.set('[data-hero-line]', { clearProps: 'transform' })
           gsap.set('[data-hero-line]', { yPercent: 110 })
           gsap.set('[data-hero-fade]', { autoAlpha: 0, y: 20 })
           gsap.set('.hero__img', { autoAlpha: 0, scale: 1.15 })
@@ -62,14 +89,32 @@ export function Hero({ ready }: Props) {
   return (
     <section ref={rootRef} id="top" className="hero">
       <div className="hero__media">
-        <img
-          className="hero__img"
-          src={artistPhoto}
-          alt="Samuel Reina con una bolsa negra cubriéndole la cabeza"
-          width={640}
-          height={640}
-          fetchPriority="high"
-        />
+        {video ? (
+          // Decorativo: el nombre y el rótulo ya presentan al artista
+          <video
+            ref={videoRef}
+            className="hero__img"
+            poster={artistPhoto}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          >
+            {video.webm && <source src={video.webm} type="video/webm" />}
+            <source src={video.mp4} type="video/mp4" />
+          </video>
+        ) : (
+          <img
+            className="hero__img"
+            src={artistPhoto}
+            alt="Samuel Reina con una bolsa negra cubriéndole la cabeza"
+            width={640}
+            height={640}
+            fetchPriority="high"
+          />
+        )}
       </div>
 
       <div className="hero__content">

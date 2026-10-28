@@ -14,6 +14,7 @@ export type Release = {
   /** false mientras el título no esté confirmado por el artista (ver docs/contenido.md) */
   titleConfirmed: boolean
   year: number
+  format: 'album' | 'single'
   /** ISO 8601 (AAAA-MM-DD) */
   releaseDate: string
   cover: string
@@ -25,4 +26,19 @@ export type Release = {
   spotifyUrl?: string
   /** Texto sobre el disco (créditos, contexto) */
   description?: string
+}
+
+/** Participación de Samuel en un lanzamiento de otro artista */
+export type Collaboration = {
+  id: string
+  /** Lanzamiento en el que aparece */
+  title: string
+  /** Artista principal del lanzamiento */
+  artist: string
+  kind: 'Sencillo' | 'Álbum' | 'Recopilatorio'
+  /** ISO 8601 (AAAA-MM-DD) */
+  releaseDate: string
+  /** Temas en los que participa */
+  tracks: string[]
+  spotifyUrl: string
 }

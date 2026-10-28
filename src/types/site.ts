@@ -16,3 +16,9 @@ export type ContactInfo = {
   /** null mientras no esté confirmado */
   email: string | null
 }
+
+export type Scene = {
+  /** id de la sección de la home (sin #) */
+  id: string
+  label: string
+}

@@ -65,6 +65,7 @@
 
   /* Capas */
   --z-header: 100;
+  --z-reel: 150;
   --z-player: 200;
   --z-intro: 500;
   --z-grain: 900;

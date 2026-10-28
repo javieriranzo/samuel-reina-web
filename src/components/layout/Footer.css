@@ -27,11 +27,6 @@
   line-height: var(--leading-snug);
 }
 
-.site-footer__value--pending {
-  color: var(--color-muted);
-  font-style: italic;
-}
-
 .site-footer__socials {
   display: flex;
   flex-direction: column;

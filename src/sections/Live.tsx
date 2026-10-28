@@ -28,7 +28,7 @@ export function Live() {
           }
           tone="live"
         >
-          En <em>directo</em>
+          En directo
         </SectionHeading>
 
         {concerts.length > 0 ? (

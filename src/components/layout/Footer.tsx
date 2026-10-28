@@ -11,16 +11,15 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <div className="site-footer__credits">
-        <div className="site-footer__credit">
-          <p className="label">Contratación y prensa</p>
-          {CONTACT.email ? (
+        {/* Mientras el email esté pendiente no se repite el aviso de la sección de contacto */}
+        {CONTACT.email && (
+          <div className="site-footer__credit">
+            <p className="label">Contratación y prensa</p>
             <a href={`mailto:${CONTACT.email}`} className="site-footer__value">
               {CONTACT.email}
             </a>
-          ) : (
-            <p className="site-footer__value site-footer__value--pending">Próximamente</p>
-          )}
-        </div>
+          </div>
+        )}
 
         <div className="site-footer__credit">
           <p className="label">Escúchalo en</p>
