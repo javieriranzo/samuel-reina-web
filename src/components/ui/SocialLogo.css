@@ -1,0 +1,25 @@
+/* En reposo, un solo color; al señalar el antecesor con `data-brand-hover`, los de la marca */
+.social-logo__path {
+  fill: currentColor;
+  transition: fill var(--duration-base) var(--ease-out);
+}
+
+.social-logo__path[data-cutout] {
+  fill: transparent;
+}
+
+[data-brand-hover]:hover .social-logo__path[data-hover='brand'],
+[data-brand-hover]:focus-visible .social-logo__path[data-hover='brand'] {
+  fill: var(--logo-brand);
+}
+
+[data-brand-hover]:hover .social-logo__path[data-hover='light'],
+[data-brand-hover]:focus-visible .social-logo__path[data-hover='light'] {
+  fill: var(--color-brand-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .social-logo__path {
+    transition: none;
+  }
+}

@@ -10,7 +10,7 @@ export function Contact() {
   useReveal(rootRef)
 
   return (
-    <section ref={rootRef} id="contacto" className="contact" aria-labelledby="contact-title">
+    <section ref={rootRef} id="contacto" className="contact screen-section" aria-labelledby="contact-title">
       <div className="contact__inner">
         <SectionHeading id="contact-title" kicker="Contratación y prensa">
           ¿Hablamos?

@@ -3,14 +3,6 @@ import type Lenis from 'lenis'
 
 export const LenisContext = createContext<Lenis | null>(null)
 
-export type SoundState = {
-  enabled: boolean
-  toggle: () => void
-  enable: () => void
-}
-
-export const SoundContext = createContext<SoundState | null>(null)
-
 export type PlayerItem = {
   /** Único en toda la web: identifica qué botón está sonando */
   id: string

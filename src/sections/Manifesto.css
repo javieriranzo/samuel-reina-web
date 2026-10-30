@@ -2,9 +2,12 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--space-section) var(--gutter);
+  /* Ancho completo para el fondo; el texto conserva el ancho máximo del contenido */
+  padding: var(--header-height) max(var(--gutter), (100% - var(--max-width)) / 2 + var(--gutter));
+  /* Foco de tungsteno tenue detrás de la frase */
+  background:
+    radial-gradient(ellipse 55% 60% at 30% 50%, var(--color-accent-haze), transparent 70%),
+    var(--color-bg);
 }
 
 .manifesto__kicker {
@@ -13,7 +16,7 @@
 
 .manifesto__text {
   font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5.6vw, 5.25rem);
+  font-size: clamp(2rem, 4.2vw, 4rem);
   line-height: 1.08;
   text-wrap: balance;
 }

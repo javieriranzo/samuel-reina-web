@@ -10,14 +10,23 @@
   --color-accent: #d19a4e; /* Ámbar tungsteno */
   --color-live: #e0352b; /* Rojo ON AIR — solo directo, REC y entradas */
   --color-line: #2a2a30;
+  /* Colores de marca: solo en los logos de plataformas del pie, al pasar el ratón */
+  --color-brand-spotify: #1ed760;
+  --color-brand-apple-music: #fa243c;
+  --color-brand-youtube: #f00;
+  --color-brand-amazon-music: #25d1da;
+  --color-brand-light: #fff;
   --color-void: #000; /* Bandas de cine, pie */
+  --color-bg-warm: #14110e; /* Negro sepia — fondo de Contacto */
   --color-bg-glass: rgb(10 10 12 / 0.72); /* Cabecera con scroll */
   --color-bg-veil: rgb(10 10 12 / 0.4);
   --color-accent-glow: rgb(209 154 78 / 0.32);
+  --color-accent-haze: rgb(209 154 78 / 0.1); /* Foco tenue de fondo (Manifiesto) */
   --color-live-glow: rgb(224 53 43 / 0.14);
 
   /* Tipografía */
-  --font-display: 'Instrument Serif', 'Times New Roman', serif;
+  /* Sin cursiva: el énfasis en titulares se marca en ámbar */
+  --font-display: 'Anton', 'Impact', 'Arial Narrow', sans-serif;
   --font-body: 'Inter Tight Variable', 'Inter Tight', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, monospace;
 
@@ -25,11 +34,12 @@
   --text-sm: 0.875rem;
   --text-base: 1.0625rem;
   --text-lg: 1.375rem;
-  --text-xl: clamp(2rem, 4vw, 3.25rem);
-  --text-2xl: clamp(3rem, 7vw, 6.5rem);
-  --text-hero: clamp(4.5rem, 15vw, 14.5rem);
+  --text-xl: clamp(1.625rem, 3vw, 2.5rem);
+  --text-2xl: clamp(2.5rem, 5.5vw, 5.25rem);
+  --text-hero: clamp(3.75rem, 11vw, 14rem);
+  --text-kicker: clamp(var(--text-xs), 0.35vw + 0.25rem, 1rem);
 
-  --leading-tight: 0.88;
+  --leading-tight: 0.92;
   --leading-snug: 1.1;
   --leading-body: 1.55;
 
@@ -48,6 +58,9 @@
   --space-section: clamp(5rem, 10vw, 9rem);
   --gutter: clamp(1rem, 4vw, 3.5rem);
   --max-width: 83rem;
+  /* Cabecera y portada: llegan más lejos que el contenido, pero no se abren hasta los bordes en pantallas ultrapanorámicas */
+  --max-width-wide: 120rem;
+  --gutter-wide: max(var(--gutter), (100vw - var(--max-width-wide)) / 2);
   --header-height: 80px; /* también es el scroll-margin-top de las anclas (global.css) */
 
   /* Forma */
@@ -60,10 +73,12 @@
   --duration-fast: 200ms;
   --duration-base: 450ms;
   --duration-slow: 900ms;
+  --duration-crossfade: 2400ms; /* Fundido entre portadas de fondo */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
   /* Capas */
+  --z-back-to-top: 90; /* Bajo la cabecera: el menú móvil lo tapa */
   --z-header: 100;
   --z-reel: 150;
   --z-player: 200;

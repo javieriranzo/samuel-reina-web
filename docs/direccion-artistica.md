@@ -25,26 +25,28 @@ Su propio universo visual (la bolsa negra que le tapa la cara en su foto de arti
 | Ámbar tungsteno | `#D19A4E` | Enlaces, hovers, ondas, énfasis | ~3 % |
 | Rojo ON AIR | `#E0352B` | Solo directo, REC y venta de entradas | ~1 % |
 
-Líneas y divisores: `#2A2A30`. Fotografía en B/N o etalonaje cálido desaturado: el ámbar es la única «luz» (cabezal, audio sonando, foco, enlaces); no colorea palabras de los titulares.
+Líneas y divisores: `#2A2A30`.
+
+Cada sección de la home tiene su propio fondo, siempre dentro de los negros: Música en negro sala, Doblaje en negro puro (`#000`, como una sala a oscuras), Animal Persona en grafito, Directo con una luz roja de escenario desde arriba, Bio (manifiesto) con un foco de tungsteno tenue y Contacto en negro sepia (`#14110E`). Fotografía en B/N o etalonaje cálido desaturado: el ámbar es la única «luz» (cabezal, audio sonando, foco, enlaces); no colorea palabras de los titulares.
 
 ## Tipografía
 
 | Rol | Familia | Uso |
 |---|---|---|
-| Display | **Instrument Serif** (400, regular e itálica) | Titulares enormes. La cursiva es la **voz en off** (doblaje, personaje) y va en marfil; la música y el escenario, en redonda. Excepción: el nombre y el logotipo |
+| Display | **Anton** (400, sin cursiva) | Titulares enormes en mayúsculas, como un cartel de cine o unos títulos de crédito. Los textos largos en display (manifiesto, entradilla) en mayúsculas y minúsculas. El énfasis (el nombre del artista) va en ámbar, nunca en cursiva sintética |
 | Texto | **Inter Tight** (300–600) | Cuerpo, navegación, botones |
 | Técnica | **JetBrains Mono** (400–500) | Timecodes, duraciones, fechas, etiquetas en mayúsculas con tracking amplio |
 
-Alternativa de pago para display: PP Editorial New.
+Antes se usaba Instrument Serif; se cambió a Anton tras comparar combinaciones (`openspec/changes/switch-display-font-anton/`).
 
 ## Movimiento
 
 - Scroll suave con Lenis; animaciones con GSAP ScrollTrigger.
 - Titulares que aparecen línea a línea desde una máscara (como tarjetas de título); el resto del contenido solo en opacidad. Manifiesto que se ilumina palabra a palabra.
-- **Línea de montaje** (elemento propio de la home): línea fija en el borde inferior con una marca por escena, cabezal ámbar y timecode ligados al scroll (1 px = 1 fotograma) y nombre de la escena actual. Desaparece en la portada y al llegar a «Fin».
+- **Línea de montaje** (elemento propio de la home): línea fija en el borde inferior con una marca por escena, cabezal ámbar y timecode ligados al scroll (1 px = 1 fotograma) y nombre de la escena actual. Desaparece en la portada y al llegar al pie.
 - Grano de película sutil permanente; destellos ámbar entre secciones.
 - Cursor: puntero del sistema; sobre música aparece junto a él una etiqueta «▶ PLAY» y sobre doblaje «● REC».
-- Sonido opcional (saludo con su voz), desactivado por defecto.
+- Sin sonido automático: solo suena lo que el usuario reproduce.
 - `prefers-reduced-motion`: sin scroll suave ni animaciones de entrada.
 
 ## Home: secciones
@@ -57,4 +59,4 @@ Alternativa de pago para display: PP Editorial New.
 6. **En directo** — fechas como entradas de cine, botón rojo.
 7. **Manifiesto** — frase que se ilumina al hacer scroll.
 8. **Vídeo destacado** — 2.39:1.
-9. **Contacto y cierre** — booking, newsletter, redes como créditos, «Fin».
+9. **Contacto y cierre** — booking, newsletter, redes como créditos (Spotify con su logo completo).

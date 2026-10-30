@@ -16,7 +16,7 @@ export function Live() {
   useReveal(rootRef)
 
   return (
-    <section ref={rootRef} id="directo" className="live" aria-labelledby="live-title">
+    <section ref={rootRef} id="directo" className="live screen-section" aria-labelledby="live-title">
       <div className="live__inner">
         <SectionHeading
           id="live-title"

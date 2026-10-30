@@ -1,0 +1,56 @@
+/* Marca de agua: portadas apiladas, solo la activa visible y muy tenue */
+.discography-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.discography-backdrop__cover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.1) blur(2px);
+  opacity: 0;
+  scale: 1.08;
+  transition:
+    opacity var(--duration-crossfade) var(--ease-in-out),
+    scale calc(var(--duration-crossfade) * 3) var(--ease-out);
+}
+
+.discography-backdrop__cover[data-active='true'] {
+  opacity: 0.09;
+  scale: 1;
+}
+
+/* Fundido hacia el negro en los bordes, para que el índice se lea limpio */
+.discography-backdrop::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      var(--color-bg) 0%,
+      transparent 30%,
+      transparent 70%,
+      var(--color-bg) 100%
+    ),
+    linear-gradient(
+      0deg,
+      var(--color-bg) 0%,
+      transparent 25%,
+      transparent 75%,
+      var(--color-bg) 100%
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discography-backdrop__cover {
+    transition: none;
+    scale: 1;
+  }
+}

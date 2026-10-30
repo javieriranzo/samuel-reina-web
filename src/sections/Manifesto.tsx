@@ -39,7 +39,7 @@ export function Manifesto() {
   )
 
   return (
-    <section ref={rootRef} id="bio" className="manifesto" aria-labelledby="manifesto-title">
+    <section ref={rootRef} id="bio" className="manifesto screen-section" aria-labelledby="manifesto-title">
       <h2 id="manifesto-title" className="label manifesto__kicker">
         Manifiesto
       </h2>

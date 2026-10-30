@@ -55,7 +55,7 @@ Vite + React + TypeScript · React Router · GSAP (ScrollTrigger) · Lenis · CS
 | `--color-accent` | `#D19A4E` | Ámbar tungsteno, acento |
 | `--color-live` | `#E0352B` | Rojo ON AIR — solo directo, REC y entradas |
 
-Tipografías: Instrument Serif (display), Inter Tight (texto), JetBrains Mono (timecodes, datos).
+Tipografías: Anton (display, titulares grandes en mayúsculas; sin cursiva, el énfasis va en ámbar), Inter Tight (texto), JetBrains Mono (timecodes, datos).
 
 ## Qué no hacer
 

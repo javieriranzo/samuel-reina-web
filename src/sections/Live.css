@@ -1,11 +1,16 @@
 .live {
-  padding: var(--space-section) var(--gutter);
+  padding: var(--header-height) var(--gutter);
+  /* Luz roja de escenario desde arriba */
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, var(--color-live-glow), transparent 70%),
+    var(--color-bg);
 }
 
 .live__inner {
   display: flex;
   flex-direction: column;
   gap: var(--space-12);
+  width: 100%;
   max-width: var(--max-width);
   margin: 0 auto;
 }
@@ -84,7 +89,6 @@
 .live__empty-title {
   font-family: var(--font-display);
   font-size: var(--text-xl);
-  font-style: italic;
   color: var(--color-muted);
 }
 

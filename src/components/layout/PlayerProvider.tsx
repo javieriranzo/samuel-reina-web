@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import { useSound } from '@/hooks/useSound'
 import { PlayerContext, PlayerTimeContext, type PlayerItem } from '@/lib/contexts'
 
 const ARTIST = 'Samuel Reina'
@@ -8,7 +7,6 @@ type Props = { children: ReactNode }
 
 /** Un único <audio> para toda la web: nunca suenan dos fragmentos a la vez. */
 export function PlayerProvider({ children }: Props) {
-  const sound = useSound()
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const currentRef = useRef<PlayerItem | null>(null)
   const [current, setCurrent] = useState<PlayerItem | null>(null)
@@ -61,17 +59,10 @@ export function PlayerProvider({ children }: Props) {
     return () => cancelAnimationFrame(frame)
   }, [playing])
 
-  // Desactivar el sonido pausa lo que suene
-  useEffect(() => {
-    if (!sound.enabled) audioRef.current?.pause()
-  }, [sound.enabled])
-
-  const { enable } = sound
   const toggle = useCallback(
     (item: PlayerItem) => {
       const audio = audioRef.current
       if (!audio) return
-      enable()
 
       if (currentRef.current?.id === item.id) {
         if (audio.paused) void audio.play().catch(() => setPlaying(false))
@@ -85,7 +76,7 @@ export function PlayerProvider({ children }: Props) {
       audio.src = item.src
       void audio.play().catch(() => setPlaying(false))
     },
-    [enable],
+    [],
   )
 
   const pause = useCallback(() => audioRef.current?.pause(), [])

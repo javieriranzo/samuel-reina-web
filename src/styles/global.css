@@ -64,6 +64,18 @@ main:focus {
   color: var(--color-muted);
 }
 
+/* Secciones de destino del menú: una pantalla cada una, contenido centrado.
+   Altura mínima (no fija) para no recortar nada en pantallas muy bajas. */
+.screen-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100svh;
+  /* El hueco de la cabecera ya va dentro (padding): al saltar desde el menú, encajar
+     la sección en la pantalla sin que asome la anterior */
+  scroll-margin-top: 0;
+}
+
 /* Enlace «ver más» de las secciones hacia las páginas secundarias */
 .more-link {
   display: inline-flex;

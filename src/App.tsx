@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router'
 import { PlayerProvider } from '@/components/layout/PlayerProvider'
 import { SiteLayout } from '@/components/layout/SiteLayout'
 import { SmoothScroll } from '@/components/layout/SmoothScroll'
-import { SoundProvider } from '@/components/layout/SoundProvider'
 import { Home } from '@/pages/Home'
 
 // La home va en el bundle principal; el resto se carga al visitarlo
@@ -26,23 +25,21 @@ export function App() {
   return (
     <BrowserRouter>
       <SmoothScroll>
-        <SoundProvider>
-          <PlayerProvider>
-            <Routes>
-              <Route element={<SiteLayout />}>
-                <Route index element={<Home />} />
-                <Route path="biografia" element={<BioPage />} />
-                <Route path="discografia" element={<DiscographyPage />} />
-                <Route path="discografia/:id" element={<ReleasePage />} />
-                <Route path="doblaje" element={<DubbingPage />} />
-                <Route path="aviso-legal" element={<LegalPage doc="aviso-legal" />} />
-                <Route path="privacidad" element={<LegalPage doc="privacidad" />} />
-                <Route path="cookies" element={<LegalPage doc="cookies" />} />
-                <Route path="*" element={<NotFoundPage />} />
-              </Route>
-            </Routes>
-          </PlayerProvider>
-        </SoundProvider>
+        <PlayerProvider>
+          <Routes>
+            <Route element={<SiteLayout />}>
+              <Route index element={<Home />} />
+              <Route path="biografia" element={<BioPage />} />
+              <Route path="discografia" element={<DiscographyPage />} />
+              <Route path="discografia/:id" element={<ReleasePage />} />
+              <Route path="doblaje" element={<DubbingPage />} />
+              <Route path="aviso-legal" element={<LegalPage doc="aviso-legal" />} />
+              <Route path="privacidad" element={<LegalPage doc="privacidad" />} />
+              <Route path="cookies" element={<LegalPage doc="cookies" />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Route>
+          </Routes>
+        </PlayerProvider>
       </SmoothScroll>
     </BrowserRouter>
   )

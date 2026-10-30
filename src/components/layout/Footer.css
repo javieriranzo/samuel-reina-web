@@ -33,12 +33,51 @@
   gap: var(--space-1);
 }
 
-.site-footer__end {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: clamp(5rem, 14vw, 10rem);
-  line-height: 1;
-  color: var(--color-accent);
+/* Red con logo completo (símbolo + nombre) */
+/* Fila de logos centrada; en pantallas estrechas pasa a varias líneas, también centradas */
+.site-footer__logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-4) var(--space-8);
+}
+
+.site-footer__social {
+  display: inline-flex;
+  padding: var(--space-2);
+  color: var(--color-muted);
+}
+
+.site-footer__social--featured {
+  color: var(--color-text);
+}
+
+/* Plataforma sin enlace todavía: reacciona al ratón, pero no es un enlace */
+.site-footer__social--pending {
+  cursor: default;
+}
+
+.site-footer__logo {
+  width: auto;
+  height: 1.75rem;
+  transition: scale var(--duration-base) var(--ease-out);
+}
+
+.site-footer__social--featured .site-footer__logo {
+  height: 2.5rem;
+}
+
+/* Al señalar: se amplía y toma los colores de su marca (SocialLogo.css) */
+.site-footer__social:hover .site-footer__logo,
+.site-footer__social:focus-visible .site-footer__logo {
+  scale: 1.08;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-footer__logo {
+    transition: none;
+  }
 }
 
 .site-footer__legal {

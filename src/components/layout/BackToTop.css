@@ -1,0 +1,68 @@
+/* Sobre la línea de montaje, a la derecha */
+.back-to-top {
+  position: fixed;
+  right: var(--gutter);
+  bottom: var(--space-16);
+  z-index: var(--z-back-to-top);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: 0 var(--space-6) 0 var(--space-4);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  background: var(--color-bg-glass);
+  backdrop-filter: blur(14px);
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 0;
+  translate: 0 0.5rem;
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    translate var(--duration-base) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.back-to-top[data-visible='true'] {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.back-to-top:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.back-to-top__arrow {
+  font-size: var(--text-sm);
+  line-height: 1;
+}
+
+/* Móvil: solo la flecha, en círculo */
+@media (max-width: 899px) {
+  .back-to-top {
+    justify-content: center;
+    width: 44px;
+    padding: 0;
+  }
+
+  .back-to-top__text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: none;
+  }
+}

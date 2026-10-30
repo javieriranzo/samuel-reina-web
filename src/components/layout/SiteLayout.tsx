@@ -1,6 +1,7 @@
 import { Suspense } from 'react'
 import { Outlet } from 'react-router'
 import { MAIN_ID, PAGE_ID } from '@/lib/dom'
+import { BackToTop } from './BackToTop'
 import { Cursor } from './Cursor'
 import { FilmGrain } from './FilmGrain'
 import { Footer } from './Footer'
@@ -24,6 +25,8 @@ export function SiteLayout() {
           </Suspense>
         </main>
         <Footer />
+        {/* Dentro de la página: inerte con el menú móvil abierto */}
+        <BackToTop />
       </div>
       <FilmGrain />
       <NowPlaying />

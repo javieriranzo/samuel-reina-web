@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { usePageMeta } from '@/hooks/usePageMeta'
 import { shouldPlayIntro } from '@/lib/intro'
+import { AnimalPersona } from '@/sections/AnimalPersona'
 import { Contact } from '@/sections/Contact'
 import { Discography } from '@/sections/Discography'
 import { DubbingCredits } from '@/sections/DubbingCredits'
@@ -27,6 +28,7 @@ export function Home() {
       <LatestRelease />
       <Discography />
       <DubbingCredits />
+      <AnimalPersona />
       <Live />
       <Manifesto />
       <FeaturedVideo />

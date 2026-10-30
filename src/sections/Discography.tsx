@@ -1,22 +1,16 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router'
 import { useReveal } from '@/animations/useReveal'
-import { CollaborationList } from '@/components/ui/CollaborationList'
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import { ALBUMS, RELEASES, SINGLES } from '@/data/releases'
+import { ALBUMS, RELEASES } from '@/data/releases'
 import type { Release } from '@/types/music'
-import { TopTracks } from './TopTracks'
+import { DiscographyBackdrop } from './DiscographyBackdrop'
 import './Discography.css'
 
 const years = RELEASES.map((r) => r.year)
 const span = `${Math.min(...years)}—${Math.max(...years)}`
 
-const GROUPS = [
-  { id: 'discos', title: 'Discos', releases: ALBUMS },
-  { id: 'sencillos', title: 'Sencillos', releases: SINGLES },
-]
-
-/** Índice de discos y sencillos y, en escritorio, la portada del señalado. */
+/** Índice de discos y, en escritorio, la portada del señalado. Sencillos y colaboraciones, en /discografia. */
 export function Discography() {
   const rootRef = useRef<HTMLElement>(null)
   // Lanzamiento señalado con el puntero o el foco; por defecto, el disco más reciente
@@ -47,7 +41,13 @@ export function Discography() {
   )
 
   return (
-    <section ref={rootRef} id="musica" className="discography" aria-labelledby="discography-title">
+    <section
+      ref={rootRef}
+      id="musica"
+      className="discography screen-section"
+      aria-labelledby="discography-title"
+    >
+      <DiscographyBackdrop />
       <div className="discography__inner">
         <div className="discography__head">
           <SectionHeading id="discography-title" kicker={`Discografía · ${span}`}>
@@ -60,31 +60,18 @@ export function Discography() {
 
         <div className="discography__body">
           <div className="discography__groups">
-            {GROUPS.map((group) => (
-              <div key={group.id} className={`discography__group discography__group--${group.id}`}>
-                <h3 className="label discography__group-title" id={`discography-${group.id}`}>
-                  {group.title}
-                </h3>
-                <ol
-                  className="discography__list"
-                  role="list"
-                  aria-labelledby={`discography-${group.id}`}
-                >
-                  {group.releases.map(item)}
-                </ol>
-              </div>
-            ))}
-
             <div className="discography__group">
-              <h3 className="label discography__group-title" id="discography-colaboraciones">
-                Colaboraciones
+              <h3 className="label discography__group-title" id="discography-discos">
+                Discos
               </h3>
-              <CollaborationList labelledBy="discography-colaboraciones" />
+              <ol className="discography__list" role="list" aria-labelledby="discography-discos">
+                {ALBUMS.map(item)}
+              </ol>
             </div>
           </div>
 
           <div className="discography__preview" aria-hidden="true">
-            {RELEASES.map((release) => (
+            {ALBUMS.map((release) => (
               <img
                 key={release.id}
                 className="discography__cover"
@@ -99,8 +86,6 @@ export function Discography() {
           </div>
         </div>
       </div>
-
-      <TopTracks />
     </section>
   )
 }

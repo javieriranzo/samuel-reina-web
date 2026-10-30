@@ -11,6 +11,7 @@ Datos reales del artista y lo que falta por conseguir. **No inventar datos**: lo
 | YouTube | [Pendiente] |
 | TikTok | [Pendiente] |
 | Apple Music | [Pendiente] |
+| Amazon Music | [Pendiente] |
 | Email de contratación | [Pendiente] |
 
 ## Discografía (perfil de Spotify, 28/10/2026)
@@ -76,7 +77,7 @@ Títulos, tipos, fechas y tracklists completos tal como aparecen en Spotify. Tra
 | Email, redes, navegación | `src/data/site.ts` |
 | Fragmentos de temas (`preview`) | `src/data/releases.ts` + archivo en `public/audio/` |
 | Fragmentos del demo reel (`clip`) | `src/data/dubbing.ts` + archivo en `public/audio/` |
-| Saludo al activar el sonido | `GREETING_AUDIO` en `src/data/media.ts` + archivo en `public/audio/` |
+| Animal Persona (descripción y enlace para escuchar) | `src/data/animalPersona.ts` |
 | Biografía (corta y párrafos) | `src/data/bio.ts` |
 | Tracklist, enlace y texto de cada disco | `tracklist`, `spotifyUrl`, `description` en `src/data/releases.ts` |
 | Datos del titular (textos legales) | `src/data/legal.ts` |
@@ -87,14 +88,14 @@ Títulos, tipos, fechas y tracklists completos tal como aparecen en Spotify. Tra
 - [ ] Fotografías en alta resolución (retrato, directo, estudio) con derechos de uso.
 - [ ] Vídeo corto en bucle para el hero: fragmento de 10–20 s del videoclip de *Tango Suite Pandiman* ([YouTube](https://www.youtube.com/watch?v=WP993jKTV9Y)), sin sonido, en MP4 (H.264, ≤ 3 MB) y opcionalmente WebM, en `public/video/`. Se activa en `HERO_VIDEO` de `src/data/media.ts`.
 - [ ] Portadas en alta resolución y confirmación de derechos (las de Spotify son de 640 px). Ahora mismo la web usa como provisionales las 14 de Spotify (5 discos y 9 sencillos) en `src/assets/images/covers/`.
-- [ ] Foto del hero en alta resolución (ahora: la foto de artista de Spotify, 640 px, se ve suave en pantallas grandes).
+- [ ] Foto del hero en alta resolución (ahora: `src/assets/images/hero.jpg`, Samuel de noche en una calle con gente detrás, captura de pantalla de 1232×1135 px; se ve suave en pantallas grandes. Derechos de uso confirmados el 30/10/2026. El encuadre de `Hero.css` está ajustado a esta foto). La foto anterior de Spotify sigue en la página de biografía.
 - [ ] Créditos de doblaje: personaje, producción, año.
 - [ ] Fragmentos del demo reel autorizados.
 - [ ] Fragmentos de 20–30 s de los temas destacados (MP3 128–192 kbps) con permiso de uso.
-- [ ] Saludo grabado por Samuel para cuando se activa el sonido (5–10 s, con ironía: p. ej. «¿Me oyes? Pues ya estamos»).
 - [ ] Agenda de conciertos.
+- [ ] Animal Persona: descripción del proyecto, enlace para escucharlo y, si se quiere, foto o portada con derechos.
 - [ ] Biografía (corta y larga) y la frase para el manifiesto.
-- [ ] Logotipo o firma (si no existe, logotipo tipográfico en Instrument Serif).
+- [ ] Logotipo o firma (si no existe, el favicon usa un monograma «SR» tipográfico).
 - [ ] Videoclip o actuación destacada.
 - [ ] Dominio y hosting.
 - [ ] Textos legales: datos del titular (nombre, NIF, domicilio, email) y revisión profesional de `/aviso-legal`, `/privacidad` y `/cookies` (ahora en borrador).

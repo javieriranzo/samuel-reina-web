@@ -41,6 +41,7 @@
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   line-height: 0.92;
+  text-transform: uppercase;
 }
 
 .release-page__description {

@@ -1,35 +1,27 @@
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { Link } from 'react-router'
 import { NAV_ITEMS } from '@/data/site'
+import { useActiveSection } from '@/hooks/useActiveSection'
 import { useLenis } from '@/hooks/useLenis'
-import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { PAGE_ID } from '@/lib/dom'
-import { SoundToggle } from './SoundToggle'
 import './Header.css'
 
 const MENU_ID = 'menu-movil'
-const HIDE_AFTER = 120
+const NAV_IDS = NAV_ITEMS.map((item) => item.id)
 
 export function Header() {
   const lenis = useLenis()
-  const reducedMotion = useReducedMotion()
+  const activeSection = useActiveSection(NAV_IDS)
   const [scrolled, setScrolled] = useState(false)
-  const [hidden, setHidden] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const firstLinkRef = useRef<HTMLAnchorElement>(null)
   // Abierto con ratón/dedo: mover el foco sin mostrar el contorno; con teclado, mostrarlo
   const openedWithPointerRef = useRef(false)
 
-  // Fondo al salir de arriba; ocultar al bajar y mostrar al subir
+  // Fondo al salir de arriba (solo móvil; en escritorio lo pone la cápsula). Siempre visible
   useEffect(() => {
-    let lastY = window.scrollY
-    const onScroll = () => {
-      const y = window.scrollY
-      setScrolled(y > 8)
-      setHidden(y > HIDE_AFTER && y > lastY)
-      lastY = y
-    }
+    const onScroll = () => setScrolled(window.scrollY > 8)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
@@ -67,32 +59,29 @@ export function Header() {
     return () => mql.removeEventListener('change', onChange)
   }, [])
 
-  const isHidden = hidden && !menuOpen && !reducedMotion
-
   return (
     <header
       className="site-header"
       data-scrolled={scrolled || menuOpen}
-      data-hidden={isHidden}
       data-menu-open={menuOpen}
     >
       <div className="site-header__bar">
-        <Link to="/" className="site-header__logo" aria-label="Samuel Reina, inicio">
-          S<em>R</em>
-        </Link>
-
         <nav className="site-header__nav" aria-label="Principal">
           <ul role="list">
             {NAV_ITEMS.map((item) => (
               <li key={item.id}>
-                <Link to={`/#${item.id}`}>{item.label}</Link>
+                <Link
+                  to={`/#${item.id}`}
+                  aria-current={item.id === activeSection ? 'true' : undefined}
+                >
+                  {item.label}
+                </Link>
               </li>
             ))}
           </ul>
         </nav>
 
         <div className="site-header__actions">
-          <SoundToggle />
           <button
             ref={menuButtonRef}
             type="button"

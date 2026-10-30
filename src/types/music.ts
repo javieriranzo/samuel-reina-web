@@ -42,3 +42,12 @@ export type Collaboration = {
   tracks: string[]
   spotifyUrl: string
 }
+
+/** Proyecto musical paralelo de Samuel */
+export type MusicProject = {
+  name: string
+  /** null mientras no esté confirmada */
+  description: string | null
+  /** Enlace para escucharlo (Spotify, Bandcamp…); null mientras no esté confirmado */
+  listenUrl: string | null
+}

@@ -11,7 +11,7 @@ const BARS = 72
 
 type Props = { release: Release }
 
-/** Onda y temas de un lanzamiento; los temas con fragmento se pueden reproducir. */
+/** Temas de un lanzamiento; con algún fragmento de audio, también la onda y los botones de reproducir. */
 export function ReleasePlayer({ release }: Props) {
   const { current, seek } = usePlayer()
   const { currentTime, duration } = usePlayerTime()
@@ -21,6 +21,8 @@ export function ReleasePlayer({ release }: Props) {
       ? { id: `${release.id}:${track.title}`, title: track.title, src: track.preview }
       : null,
   )
+  // Sin ningún fragmento no hay nada que escuchar aquí: la onda haría creer que sí
+  const hasAudio = items.some((item) => item !== null)
   const active = items.find((item) => item !== null && item.id === current?.id) ?? null
   const waveSource = active ?? items.find((item) => item !== null) ?? null
   const peaks = useWaveformPeaks(waveSource?.src, BARS)
@@ -35,9 +37,11 @@ export function ReleasePlayer({ release }: Props) {
 
   return (
     <div className="release__player" data-reveal>
-      <div className="release__wave" data-seekable={active !== null} onClick={onWaveClick}>
-        <Waveform seed={release.year} bars={BARS} peaks={peaks} progress={progress} />
-      </div>
+      {hasAudio && (
+        <div className="release__wave" data-seekable={active !== null} onClick={onWaveClick}>
+          <Waveform seed={release.year} bars={BARS} peaks={peaks} progress={progress} />
+        </div>
+      )}
 
       {active && (
         <p className="label release__now">

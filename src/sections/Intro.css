@@ -55,9 +55,11 @@
   font-family: var(--font-display);
   font-size: var(--text-xl);
   line-height: 1;
+  text-transform: uppercase;
 }
 
 .intro__name em {
+  font-style: normal;
   color: var(--color-accent);
 }
 

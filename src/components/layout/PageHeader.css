@@ -18,13 +18,14 @@
 
 .page-header__title {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 11vw, 9.5rem);
+  font-size: clamp(3rem, 8vw, 7rem);
   line-height: var(--leading-tight);
-  letter-spacing: -0.02em;
+  text-transform: uppercase;
 }
 
 .page-header__title em {
-  font-style: italic;
+  font-style: normal;
+  color: var(--color-accent);
 }
 
 .page-header__intro {

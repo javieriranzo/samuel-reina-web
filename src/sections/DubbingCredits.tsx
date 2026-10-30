@@ -16,7 +16,7 @@ export function DubbingCredits() {
     <section
       ref={rootRef}
       id="doblaje"
-      className="credits"
+      className="credits screen-section"
       aria-labelledby="credits-title"
       data-cursor="rec"
     >

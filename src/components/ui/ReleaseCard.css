@@ -1,0 +1,152 @@
+.release-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Por encima de las vecinas para que el vinilo no quede tapado */
+.release-card:hover,
+.release-card:focus-visible {
+  position: relative;
+  z-index: 1;
+  color: inherit;
+}
+
+.release-card__sleeve {
+  position: relative;
+  display: block;
+  aspect-ratio: 1;
+}
+
+.release-card__cover {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-cover);
+  transition: translate var(--duration-base) var(--ease-out);
+}
+
+/* Vinilo: surcos, brillo junto a la etiqueta y la portada como etiqueta central */
+.release-card__vinyl {
+  position: absolute;
+  inset: 3%;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle,
+      transparent 0 17%,
+      color-mix(in srgb, var(--color-text) 6%, transparent) 17.5% 18%,
+      transparent 18.5%
+    ),
+    repeating-radial-gradient(circle, var(--color-void) 0 2px, var(--color-surface) 2px 3px);
+  box-shadow: var(--shadow-cover);
+  transition: translate var(--duration-slow) var(--ease-out);
+}
+
+.release-card__label {
+  position: absolute;
+  inset: 33%;
+  border-radius: 50%;
+  background: center / cover;
+}
+
+.release-card__label::after {
+  content: '';
+  position: absolute;
+  inset: 44%;
+  border-radius: 50%;
+  background: var(--color-bg);
+}
+
+.release-card:hover .release-card__vinyl,
+.release-card:focus-visible .release-card__vinyl {
+  translate: 42% 0;
+  animation: release-card-spin 4s linear infinite;
+}
+
+.release-card:hover .release-card__cover,
+.release-card:focus-visible .release-card__cover {
+  translate: -4% 0;
+}
+
+@keyframes release-card-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.release-card__hover {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  background: linear-gradient(
+    0deg,
+    color-mix(in srgb, var(--color-void) 85%, transparent),
+    transparent
+  );
+  opacity: 0;
+  translate: -4% 0.5rem;
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    translate var(--duration-base) var(--ease-out);
+}
+
+.release-card:hover .release-card__hover,
+.release-card:focus-visible .release-card__hover {
+  opacity: 1;
+  translate: -4% 0;
+}
+
+.release-card__play {
+  color: var(--color-accent);
+}
+
+.release-card__meta {
+  font-size: var(--text-sm);
+}
+
+.release-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.release-card__year {
+  color: var(--color-accent);
+}
+
+.release-card__title {
+  font-family: var(--font-display);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.release-card--big .release-card__title {
+  font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+}
+
+.release-card--small .release-card__title {
+  font-size: var(--text-lg);
+}
+
+/* Movimiento reducido: el vinilo aparece ya fuera, sin girar ni deslizarse */
+@media (prefers-reduced-motion: reduce) {
+  .release-card__cover,
+  .release-card__vinyl,
+  .release-card__hover {
+    transition: none;
+  }
+
+  .release-card:hover .release-card__vinyl,
+  .release-card:focus-visible .release-card__vinyl {
+    animation: none;
+  }
+}

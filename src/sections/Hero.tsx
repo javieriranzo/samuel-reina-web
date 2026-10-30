@@ -5,7 +5,7 @@ import { Timecode } from '@/components/ui/Timecode'
 import { HERO_VIDEO } from '@/data/media'
 import { LATEST_RELEASE } from '@/data/releases'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-import artistPhoto from '@/assets/images/artist.jpg'
+import heroPhoto from '@/assets/images/hero.jpg'
 import './Hero.css'
 
 // Ahorro de datos activado en el navegador (no estándar: solo Chromium)
@@ -94,7 +94,7 @@ export function Hero({ ready }: Props) {
           <video
             ref={videoRef}
             className="hero__img"
-            poster={artistPhoto}
+            poster={heroPhoto}
             autoPlay
             muted
             loop
@@ -108,10 +108,10 @@ export function Hero({ ready }: Props) {
         ) : (
           <img
             className="hero__img"
-            src={artistPhoto}
-            alt="Samuel Reina con una bolsa negra cubriéndole la cabeza"
-            width={640}
-            height={640}
+            src={heroPhoto}
+            alt="Samuel Reina de noche en una calle iluminada, serio y mirando a cámara, con gente detrás"
+            width={1232}
+            height={1135}
             fetchPriority="high"
           />
         )}

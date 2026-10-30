@@ -21,9 +21,11 @@
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   line-height: 0.92;
+  text-transform: uppercase;
 }
 
-/* Cursiva = voz en off (doblaje); en marfil, el ámbar queda para la luz */
+/* Énfasis (el nombre del artista): Anton no tiene cursiva, se marca en ámbar */
 .section-heading__title em {
-  font-style: italic;
+  font-style: normal;
+  color: var(--color-accent);
 }

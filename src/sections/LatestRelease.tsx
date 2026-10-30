@@ -60,7 +60,12 @@ export function LatestRelease() {
   }, [tiltEnabled])
 
   return (
-    <section ref={rootRef} id="lanzamiento" className="release" aria-labelledby="release-title">
+    <section
+      ref={rootRef}
+      id="lanzamiento"
+      className="release screen-section"
+      aria-labelledby="release-title"
+    >
       <div className="release__inner">
         <div className="release__cover-area" data-reveal data-cursor="play">
           <img

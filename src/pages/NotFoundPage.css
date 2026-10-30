@@ -18,10 +18,11 @@
   font-family: var(--font-display);
   font-size: var(--text-hero);
   line-height: var(--leading-tight);
+  text-transform: uppercase;
 }
 
 .not-found__title em {
-  font-style: italic;
+  font-style: normal;
   color: var(--color-accent);
 }
 

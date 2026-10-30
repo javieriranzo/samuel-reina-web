@@ -20,7 +20,7 @@ export function ReelTimeline({ enabled }: Props) {
   // Una marca por escena presente en la página, con su posición (0–1) en la pista
   const [marks, setMarks] = useState<{ index: number; position: number }[]>([])
   const [scene, setScene] = useState(-1)
-  // El pie («Fin») ya está en pantalla: la película ha terminado
+  // El pie (créditos finales) ya está en pantalla: la película ha terminado
   const [ended, setEnded] = useState(false)
 
   useEffect(() => {
